@@ -8,6 +8,7 @@ public class Move : MonoBehaviour
 	public float speed;
 	public float jump;
 	float moveVelocity;
+    float acc = 1.5f;
 
 	//Grounded Vars
 	bool isGrounded = true;
@@ -29,11 +30,11 @@ public class Move : MonoBehaviour
 		//Left Right Movement
 		if (Input.GetKey (KeyCode.LeftArrow) || Input.GetKey (KeyCode.A)) 
 		{
-			moveVelocity = -speed;
+			moveVelocity += -speed;
 		}
 		if (Input.GetKey (KeyCode.RightArrow) || Input.GetKey (KeyCode.D)) 
 		{
-			moveVelocity = speed;
+			moveVelocity += speed;
 		}
 
 		GetComponent<Rigidbody2D> ().velocity = new Vector2 (moveVelocity, GetComponent<Rigidbody2D> ().velocity.y);
