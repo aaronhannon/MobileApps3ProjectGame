@@ -4,45 +4,31 @@ using UnityEngine;
 
 public class Move : MonoBehaviour
 {
-	//Movement
-	public float speed;
-	public float jump;
-	float moveVelocity;
-    float acc = 1.5f;
+    private float acc = 2.0f;
+    private float velocity;
+    void Start()
+    {
+       
+    }
 
-	//Grounded Vars
-	bool isGrounded = true;
+    void FixedUpdate()
+    {
 
-	void Update () 
-	{
-		//Jumping
-		if (Input.GetKeyDown (KeyCode.Space) || Input.GetKeyDown (KeyCode.UpArrow) || Input.GetKeyDown (KeyCode.Z) || Input.GetKeyDown (KeyCode.W)) 
-		{
-			if(isGrounded)
-			{
-				GetComponent<Rigidbody2D> ().velocity = new Vector2 (GetComponent<Rigidbody2D> ().velocity.x, jump);
-				isGrounded = false;
-			}
-		}
+        // if (rb2d.velocity.magnitude > maxSpeed)
+        //   rb2d.velocity = rb2d.velocity.normalized * maxSpeed;
 
-		moveVelocity = 0;
+        //float horizontal = Input.GetAxis("Horizontal") * acceleration * Time.deltaTime;
+        //float vertical = Input.GetAxis("Vertical") * acceleration * Time.deltaTime;
+        
+        if (Input.GetAxis("Horizontal")>0 || Input.GetAxis("Horizontal") < 0)
+        {
+            
+            velocity += Input.GetAxis("Horizontal") * acc;
+        }
 
-		//Left Right Movement
-		if (Input.GetKey (KeyCode.LeftArrow) || Input.GetKey (KeyCode.A)) 
-		{
-			moveVelocity += -speed;
-		}
-		if (Input.GetKey (KeyCode.RightArrow) || Input.GetKey (KeyCode.D)) 
-		{
-			moveVelocity += speed;
-		}
 
-		GetComponent<Rigidbody2D> ().velocity = new Vector2 (moveVelocity, GetComponent<Rigidbody2D> ().velocity.y);
+        Debug.Log("Velocity: "+velocity);
 
-	}
-	//Check if Grounded
-	void OnTriggerEnter2D()
-	{
-		isGrounded = true;
-	}
+        transform.position = new Vector2(velocity, transform.position.y);
+    }
 }
