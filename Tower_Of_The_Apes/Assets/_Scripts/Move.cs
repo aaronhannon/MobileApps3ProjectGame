@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Move : MonoBehaviour
 {
-    private float acc = 2.0f;
+    private float acc = 0.02f;
     private float velocity;
     void Start()
     {
@@ -24,11 +24,26 @@ public class Move : MonoBehaviour
         {
             
             velocity += Input.GetAxis("Horizontal") * acc;
+            
+            if(Input.GetAxis("Horizontal") < 0 && velocity > 0)
+            {
+
+                velocity -= 0.1f;
+                Debug.Log(velocity);
+            }
+
+            if (Input.GetAxis("Horizontal") > 0 && velocity < 0)
+            {
+
+                velocity += 0.1f;
+                Debug.Log(velocity);
+            }
+
+
         }
 
-
-        Debug.Log("Velocity: "+velocity);
-
-        transform.position = new Vector2(velocity, transform.position.y);
+        transform.position = new Vector2(transform.position.x+velocity, transform.position.y);
+        //Debug.Log("Velocity: " + velocity);
+        //Debug.Log(transform.position.x.ToString());
     }
 }
