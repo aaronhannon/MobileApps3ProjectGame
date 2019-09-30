@@ -6,9 +6,23 @@ public class Move : MonoBehaviour
 {
     private float acc = 0.02f;
     private float velocity;
+    private float maxHeight = 1.0f;
+    public bool grounded = true;
+    public float jumpPower;
+    Rigidbody2D rb;
+
     void Start()
     {
-       
+        rb = GetComponent<Rigidbody2D>();
+    }
+
+    void OnCollisionEnter2D(Collision2D other)
+    {
+        if (other.gameObject.CompareTag("Ground")){
+            grounded = true;
+            rb.velocity = Vector2.zero;
+        }
+        
     }
 
     void FixedUpdate()
@@ -40,6 +54,12 @@ public class Move : MonoBehaviour
             }
 
 
+        }
+
+        if (Input.GetKeyDown("space") && grounded == true)
+        {
+            grounded = false;
+            rb.AddForce(new Vector2(rb.velocity.x, jumpPower));
         }
 
         transform.position = new Vector2(transform.position.x+velocity, transform.position.y);
