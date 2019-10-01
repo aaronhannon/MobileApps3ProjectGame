@@ -11,6 +11,8 @@ public class Move : MonoBehaviour
     private bool inAir = false;
     private float jumpPower = 0.0f;
     private float maxJump = 1.0f;
+    private bool onPlatform = false;
+    int counter = 0;
     Rigidbody2D rb;
 
     void Start()
@@ -25,7 +27,24 @@ public class Move : MonoBehaviour
             grounded = true;
             inAir = false;
             jumpPower = 0.0f;
-            rb.velocity = Vector2.zero;
+        }
+
+        if (other.gameObject.CompareTag("Platform"))
+        {
+            
+
+            
+            if (transform.position.y> other.gameObject.transform.position.y)
+            {
+                Debug.Log("OVER PLATFORM");
+                jumpPower = 0.0f;
+                grounded = true;
+                inAir = false;
+                counter = 0;
+            }
+            counter++;
+            //jumpPower = 0.0f;
+            //rb.velocity = Vector2.zero;
         }
 
     }
@@ -58,7 +77,7 @@ public class Move : MonoBehaviour
                 //Debug.Log(velocity);
             }
 
-            Debug.Log(velocity);
+            //Debug.Log(velocity);
         }
 
         if(velocity > 0.75f)
@@ -87,9 +106,4 @@ public class Move : MonoBehaviour
 
     }
 
-    void Jump()
-    {
-
-        
-    }
 }
