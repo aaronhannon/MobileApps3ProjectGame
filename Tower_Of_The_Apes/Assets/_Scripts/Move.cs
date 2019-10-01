@@ -8,7 +8,9 @@ public class Move : MonoBehaviour
     private float velocity;
     private float maxHeight = 1.0f;
     public bool grounded = true;
-    public float jumpPower;
+    private bool inAir = false;
+    private float jumpPower = 0.0f;
+    private float maxJump = 1.0f;
     Rigidbody2D rb;
 
     void Start()
@@ -18,11 +20,14 @@ public class Move : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D other)
     {
-        if (other.gameObject.CompareTag("Ground")){
+        if (other.gameObject.CompareTag("Ground"))
+        {
             grounded = true;
+            inAir = false;
+            jumpPower = 0.0f;
             rb.velocity = Vector2.zero;
         }
-        
+
     }
 
     void FixedUpdate()
@@ -33,37 +38,58 @@ public class Move : MonoBehaviour
 
         //float horizontal = Input.GetAxis("Horizontal") * acceleration * Time.deltaTime;
         //float vertical = Input.GetAxis("Vertical") * acceleration * Time.deltaTime;
-        
-        if (Input.GetAxis("Horizontal")>0 || Input.GetAxis("Horizontal") < 0)
+
+        if (Input.GetAxis("Horizontal") > 0 || Input.GetAxis("Horizontal") < 0)
         {
-            
+
             velocity += Input.GetAxis("Horizontal") * acc;
-            
-            if(Input.GetAxis("Horizontal") < 0 && velocity > 0)
+
+            if (Input.GetAxis("Horizontal") < 0 && velocity > 0)
             {
 
                 velocity -= 0.1f;
-                Debug.Log(velocity);
+                //Debug.Log(velocity);
             }
 
             if (Input.GetAxis("Horizontal") > 0 && velocity < 0)
             {
 
                 velocity += 0.1f;
-                Debug.Log(velocity);
+                //Debug.Log(velocity);
             }
 
+            Debug.Log(velocity);
+        }
 
+        if(velocity > 0.75f)
+        {
+            maxJump = 2.0f;
+        }
+        else
+        {
+            maxJump = 1.0f;
         }
 
         if (Input.GetKeyDown("space") && grounded == true)
         {
+            inAir = true;
             grounded = false;
-            rb.AddForce(new Vector2(rb.velocity.x, jumpPower));
         }
 
-        transform.position = new Vector2(transform.position.x+velocity, transform.position.y);
-        //Debug.Log("Velocity: " + velocity);
-        //Debug.Log(transform.position.x.ToString());
+        if (inAir == true && jumpPower < maxJump)
+        {
+            //Debug.Log("HerE");
+            jumpPower+=0.3f;
+            transform.position = new Vector2(transform.position.x, transform.position.y + jumpPower);
+        }
+
+        transform.position = new Vector2(transform.position.x + velocity,transform.position.y);
+
+    }
+
+    void Jump()
+    {
+
+        
     }
 }

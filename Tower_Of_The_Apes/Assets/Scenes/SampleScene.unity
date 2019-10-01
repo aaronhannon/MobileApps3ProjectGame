@@ -441,8 +441,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1021530839}
   - component: {fileID: 1021530838}
-  - component: {fileID: 1021530837}
   - component: {fileID: 1021530836}
+  - component: {fileID: 1021530837}
   - component: {fileID: 1021530840}
   m_Layer: 0
   m_Name: Player
@@ -574,4 +574,3 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   grounded: 1
-  jumpPower: 350
