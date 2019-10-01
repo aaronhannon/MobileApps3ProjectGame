@@ -77,14 +77,15 @@ public class Move : MonoBehaviour
                 //Debug.Log(velocity);
             }
 
-            //Debug.Log(velocity);
+            Debug.Log(velocity);
         }
 
-        if(velocity > 0.75f)
+        if((velocity < -0.75f || velocity > 0.75f) && grounded==true)
         {
+            Debug.Log("MAX JUMP");
             maxJump = 2.0f;
         }
-        else
+        else if((velocity > -0.75f || velocity < 0.75f) && grounded == true)
         {
             maxJump = 1.0f;
         }
