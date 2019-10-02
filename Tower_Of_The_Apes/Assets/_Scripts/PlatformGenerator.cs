@@ -8,13 +8,17 @@ public class PlatformGenerator : MonoBehaviour
     private Platform plat;
     private List<Platform> platList;
     private int platformCounter = 0;
-    private float randScaleX, randPositionX;
+    private GameObject platformParent;
 
     // Start is called before the first frame update
     void Start()
     {
         platList = new List<Platform>();
-        
+        platformParent = GameObject.Find("PlatformContainer");
+        if (!platformParent)
+        {
+            platformParent = new GameObject("PlatformContainer");
+        }
     }
 
     // Update is called once per frame
@@ -25,9 +29,9 @@ public class PlatformGenerator : MonoBehaviour
         {
             
 
-            plat.transform.position = new Vector2(Random.Range(-7.0f, 7.0f), 2.0f+(platformCounter * 2.5f));
+            plat.transform.position = new Vector2(Random.Range(-7.0f, 7.0f), 2.0f+(platformCounter * 2f));
             plat.transform.localScale = new Vector2(Random.Range(3.0f, 5.0f), 1.0f);
-            Instantiate<Platform>(plat);
+            Instantiate<Platform>(plat,platformParent.transform);
             platList.Add(plat);
             platformCounter++;
             Debug.Log(platformCounter);
