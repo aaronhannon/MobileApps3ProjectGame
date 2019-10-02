@@ -63,8 +63,19 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\__Scripts\Boundaries.cs" />
+    <Compile Include="Assets\__Scripts\Bullet.cs" />
+    <Compile Include="Assets\__Scripts\Enemy.cs" />
+    <Compile Include="Assets\__Scripts\FallingBehaviour.cs" />
+    <Compile Include="Assets\__Scripts\PlayerMovement.cs" />
+    <Compile Include="Assets\__Scripts\PointSpawner.cs" />
+    <Compile Include="Assets\__Scripts\SpawnPoint.cs" />
+    <Compile Include="Assets\__Scripts\Utilities\ParentUtils.cs" />
+    <Compile Include="Assets\__Scripts\WeaponsController.cs" />
     <Compile Include="Assets\_Scripts\FollowPlayer.cs" />
     <Compile Include="Assets\_Scripts\Move.cs" />
+    <Compile Include="Assets\_Scripts\Platform.cs" />
+    <Compile Include="Assets\_Scripts\PlatformGenerator.cs" />
     <Reference Include="Unity.Timeline.Editor">
       <HintPath>C:/Users/Aaron/Documents/MobileApps3ProjectGame/Tower_Of_The_Apes/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
     </Reference>

@@ -18,6 +18,8 @@ public class Move : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        rb.collisionDetectionMode = CollisionDetectionMode2D.Continuous;
+        rb.interpolation = RigidbodyInterpolation2D.Extrapolate;
     }
 
     void OnCollisionEnter2D(Collision2D other)
@@ -83,11 +85,11 @@ public class Move : MonoBehaviour
         if((velocity < -0.75f || velocity > 0.75f) && grounded==true)
         {
             Debug.Log("MAX JUMP");
-            maxJump = 2.0f;
+            maxJump = 1.0f;
         }
         else if((velocity > -0.75f || velocity < 0.75f) && grounded == true)
         {
-            maxJump = 1.0f;
+            maxJump = 0.5f;
         }
 
         if (Input.GetKeyDown("space") && grounded == true)
@@ -99,7 +101,7 @@ public class Move : MonoBehaviour
         if (inAir == true && jumpPower < maxJump)
         {
             //Debug.Log("HerE");
-            jumpPower+=0.3f;
+            jumpPower+=0.05f;
             transform.position = new Vector2(transform.position.x, transform.position.y + jumpPower);
         }
 
