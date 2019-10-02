@@ -25,7 +25,7 @@ public class PlatformGenerator : MonoBehaviour
     void Update()
     {
 
-        if (platformCounter < 50)
+        if (platformCounter < 400)
         {
             
 
