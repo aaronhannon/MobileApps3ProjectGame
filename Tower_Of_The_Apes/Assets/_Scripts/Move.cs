@@ -13,8 +13,11 @@ public class Move : MonoBehaviour
     private float maxJump = 1.0f;
     private bool onPlatform = false;
     private float changeSpeed = 0.5f;
+    private float platformCounter;
+    private float highestPlatform;
     int counter = 0;
     Rigidbody2D rb;
+    
 
     void Start()
     {
@@ -35,9 +38,19 @@ public class Move : MonoBehaviour
 
         if (other.gameObject.CompareTag("Platform"))
         {
-           // Debug.Log("COLLISION");
+            // Debug.Log("COLLISION");
 
-            
+            if (transform.position.y > other.gameObject.transform.position.y)
+            {
+                platformCounter = other.gameObject.transform.position.y / 2;
+
+                if (platformCounter > highestPlatform)
+                {
+                    highestPlatform = platformCounter;
+                }
+                Debug.Log("HIGH SCORE: " + highestPlatform);
+            }
+
             if (transform.position.y> other.gameObject.transform.position.y)
             {
                // Debug.Log("OVER PLATFORM");
@@ -55,6 +68,9 @@ public class Move : MonoBehaviour
 
     void FixedUpdate()
     {
+
+        
+
 
         if(transform.position.x < -11)
         {
