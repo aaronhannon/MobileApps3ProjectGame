@@ -7,6 +7,7 @@ public class PlatformGenerator : MonoBehaviour
     [SerializeField]
     private Platform plat;
     private List<Platform> platList;
+    private int maxPlatforms = 100;
     private int platformCounter = 0;
     private GameObject platformParent;
     private bool platsCreated = false;
@@ -27,7 +28,7 @@ public class PlatformGenerator : MonoBehaviour
     void Update()
     {
 
-        if (platformCounter < 100)
+        if (platformCounter < maxPlatforms)
         {
             
 
@@ -47,6 +48,11 @@ public class PlatformGenerator : MonoBehaviour
             
             
         }
+    }
+
+    public int getMaxPlatforms()
+    {
+        return maxPlatforms;
     }
 
     public List<Platform> GetPlatforms()

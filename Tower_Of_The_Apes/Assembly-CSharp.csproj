@@ -71,12 +71,15 @@
     <Compile Include="Assets\__Scripts\SpawnPoint.cs" />
     <Compile Include="Assets\__Scripts\Utilities\ParentUtils.cs" />
     <Compile Include="Assets\__Scripts\WeaponsController.cs" />
+    <Compile Include="Assets\_Scripts\FileHandler.cs" />
     <Compile Include="Assets\_Scripts\FollowPlayer.cs" />
     <Compile Include="Assets\_Scripts\Move.cs" />
+    <Compile Include="Assets\_Scripts\MovePlatforms.cs" />
     <Compile Include="Assets\_Scripts\Platform.cs" />
     <Compile Include="Assets\_Scripts\PlatformDecay.cs" />
     <Compile Include="Assets\_Scripts\PlatformGenerator.cs" />
     <Compile Include="Assets\_Scripts\WallCollider.cs" />
+    <None Include="Assets\Resources\test.txt" />
     <Reference Include="Unity.Timeline.Editor">
       <HintPath>C:/Users/aaron/OneDrive/Documents/GitHub/MobileApps3ProjectGame/Tower_Of_The_Apes/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
     </Reference>
