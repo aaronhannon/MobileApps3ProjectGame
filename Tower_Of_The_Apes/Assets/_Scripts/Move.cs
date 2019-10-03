@@ -12,6 +12,7 @@ public class Move : MonoBehaviour
     private float jumpPower = 0.0f;
     private float maxJump = 1.0f;
     private bool onPlatform = false;
+    private float changeSpeed = 0.5f;
     int counter = 0;
     Rigidbody2D rb;
 
@@ -26,6 +27,7 @@ public class Move : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Ground"))
         {
+            //Debug.Log("GROUND");
             grounded = true;
             inAir = false;
             jumpPower = 0.0f;
@@ -33,12 +35,12 @@ public class Move : MonoBehaviour
 
         if (other.gameObject.CompareTag("Platform"))
         {
-            
+           // Debug.Log("COLLISION");
 
             
             if (transform.position.y> other.gameObject.transform.position.y)
             {
-                Debug.Log("OVER PLATFORM");
+               // Debug.Log("OVER PLATFORM");
                 jumpPower = 0.0f;
                 grounded = true;
                 inAir = false;
@@ -79,15 +81,31 @@ public class Move : MonoBehaviour
                 //Debug.Log(velocity);
             }
 
-            Debug.Log(velocity);
+            //Debug.Log(velocity);
         }
 
-        if((velocity < -0.75f || velocity > 0.75f) && grounded==true)
+        //ROTATION OF PLAYER
+        if (grounded == false && maxJump == 1.0f)
         {
-            Debug.Log("MAX JUMP");
+            Debug.Log("ROTATING");
+            if (velocity>0)
+            {
+                transform.Rotate(Vector3.back * 7);
+            }
+            else
+            {
+                transform.Rotate(Vector3.forward * 7);
+            }
+            
+
+        }
+
+        if ((velocity < -changeSpeed || velocity > changeSpeed) && grounded==true)
+        {
+            //Debug.Log("MAX JUMP");
             maxJump = 1.0f;
         }
-        else if((velocity > -0.75f || velocity < 0.75f) && grounded == true)
+        else if((velocity > -changeSpeed || velocity < changeSpeed) && grounded == true)
         {
             maxJump = 0.5f;
         }

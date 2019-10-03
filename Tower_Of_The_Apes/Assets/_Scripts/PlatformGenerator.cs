@@ -9,6 +9,8 @@ public class PlatformGenerator : MonoBehaviour
     private List<Platform> platList;
     private int platformCounter = 0;
     private GameObject platformParent;
+    private bool platsCreated = false;
+
 
     // Start is called before the first frame update
     void Start()
@@ -25,7 +27,7 @@ public class PlatformGenerator : MonoBehaviour
     void Update()
     {
 
-        if (platformCounter < 400)
+        if (platformCounter < 100)
         {
             
 
@@ -35,6 +37,31 @@ public class PlatformGenerator : MonoBehaviour
             platList.Add(plat);
             platformCounter++;
             Debug.Log(platformCounter);
+            
+            
+            
         }
+        else
+        {
+            platsCreated = true;
+            
+            
+        }
+    }
+
+    public List<Platform> GetPlatforms()
+    {
+        return platList;
+    }
+
+    public bool getPlatformsDone()
+    {
+        return platsCreated;
+    }
+
+
+    public GameObject getParentContainer()
+    {
+        return platformParent;
     }
 }
