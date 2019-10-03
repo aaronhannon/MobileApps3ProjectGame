@@ -50,11 +50,23 @@ public class Move : MonoBehaviour
             //jumpPower = 0.0f;
             //rb.velocity = Vector2.zero;
         }
-
+        
     }
 
     void FixedUpdate()
     {
+
+        if(transform.position.x < -11)
+        {
+            transform.position = new Vector2(-11, transform.position.y);
+            velocity = 0.0f;
+        }
+
+        if (transform.position.x > 11)
+        {
+            transform.position = new Vector2(11, transform.position.y);
+            velocity = 0.0f;
+        }
 
         // if (rb2d.velocity.magnitude > maxSpeed)
         //   rb2d.velocity = rb2d.velocity.normalized * maxSpeed;

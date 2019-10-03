@@ -36,7 +36,7 @@ public class PlatformGenerator : MonoBehaviour
             Instantiate<Platform>(plat,platformParent.transform);
             platList.Add(plat);
             platformCounter++;
-            Debug.Log(platformCounter);
+            //Debug.Log(platformCounter);
             
             
             
