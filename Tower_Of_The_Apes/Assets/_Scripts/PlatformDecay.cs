@@ -35,7 +35,7 @@ public class PlatformDecay : MonoBehaviour
         //Debug.Log("Time Left: " + timeLeft1);
         if (timeLeft1 < 0)
         {
-            Debug.Log("FIRST TIMERS UP");
+            //Debug.Log("FIRST TIMERS UP");
             firstTimer = true;
         }
 
@@ -53,10 +53,10 @@ public class PlatformDecay : MonoBehaviour
             {
                 
                 timeLeft2 -= Time.deltaTime;
-                Debug.Log("Time Left: " + timeLeft2);
+                //Debug.Log("Time Left: " + timeLeft2);
                 if (timeLeft2 < 0 && platformCounter !=0)
                 {
-                    Debug.Log("TIMERS UP");
+                    //Debug.Log("TIMERS UP");
                     Destroy(platParent.transform.GetChild(0).gameObject);
                     timeLeft2 = 2.0f;
                     platformCounter--;

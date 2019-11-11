@@ -23,6 +23,7 @@ public class Move : MonoBehaviour
     private float maxHeight = 1.0f;
     public bool grounded = true;
     private bool inAir = false;
+    private int doubleJump = 0;
     private float jumpPower = 0.0f;
     private float maxJump = 1.0f;
     private bool onPlatform = false;
@@ -34,6 +35,7 @@ public class Move : MonoBehaviour
     Rigidbody2D rb;
     private bool gameOver = false;
     private bool reset = false;
+    bool wallJump = false;
 
     void Start()
     {
@@ -51,6 +53,8 @@ public class Move : MonoBehaviour
             grounded = true;
             inAir = false;
             jumpPower = 0.0f;
+            doubleJump = 0;
+            wallJump = false;
         }
 
         if (other.gameObject.CompareTag("Platform"))
@@ -75,6 +79,8 @@ public class Move : MonoBehaviour
                 grounded = true;
                 inAir = false;
                 counter = 0;
+                doubleJump = 0;
+                wallJump = false;
             }
             counter++;
             //jumpPower = 0.0f;
@@ -117,12 +123,33 @@ public class Move : MonoBehaviour
             {
                 transform.position = new Vector2(-11, transform.position.y);
                 velocity = 0.0f;
+                //Debug.Log("Wall Collision");
             }
 
             if (transform.position.x > 11)
             {
+                
                 transform.position = new Vector2(11, transform.position.y);
                 velocity = 0.0f;
+
+            }
+
+            if (transform.position.x > 10 || transform.position.x < -10)
+            {
+
+                //Debug.Log("Wall Collision");
+                if (Input.GetKeyDown("space"))
+                {
+                    wallJump = true;
+                    jumpPower = 0.0f;
+                }
+
+                if (wallJump == true && jumpPower < 1.5f)
+                {
+                    Debug.Log("Wall Jump");
+                    jumpPower += 0.05f;
+                    transform.position = new Vector2(transform.position.x, transform.position.y + jumpPower);
+                }
             }
 
             //KEYPRESSES
@@ -165,29 +192,52 @@ public class Move : MonoBehaviour
             }
 
             //JUMP HIGHER AT A CERTAIN VELOCITY
-            if ((velocity < -changeSpeed || velocity > changeSpeed) && grounded == true)
-            {
-                //Debug.Log("MAX JUMP");
-                maxJump = 1.0f;
-            }
-            else if ((velocity > -changeSpeed || velocity < changeSpeed) && grounded == true)
+            //if ((velocity < -changeSpeed || velocity > changeSpeed) && grounded == true)
+            //{
+            //    //Debug.Log("MAX JUMP");
+            //    maxJump = 1.0f;
+            //}
+            if ((velocity > -changeSpeed || velocity < changeSpeed) && grounded == true)
             {
                 maxJump = 0.5f;
             }
 
             //JUMP KEYPRESS
-            if (Input.GetKeyDown("space") && grounded == true)
+            if (Input.GetKeyDown("space") && doubleJump !=2)
             {
                 inAir = true;
                 grounded = false;
+                Debug.Log("DoubleCounter" + doubleJump);
+                
+                doubleJump++;
+
+
+
+            }
+
+            if (doubleJump == 2)
+            {
+                maxJump = 1.0f;
             }
 
             if (inAir == true && jumpPower < maxJump)
             {
                 //Debug.Log("HerE");
+
                 jumpPower += 0.05f;
                 transform.position = new Vector2(transform.position.x, transform.position.y + jumpPower);
             }
+
+            //if (inAir == true && jumpPower < maxJump)
+            //{
+            //    //Debug.Log("HerE");
+            //    if(doubleJump == 2)
+            //    {
+            //        maxJump = 1.0f;
+            //    }
+            //    jumpPower += 0.05f;
+            //    transform.position = new Vector2(transform.position.x, transform.position.y + jumpPower);
+            //}
 
             transform.position = new Vector2(transform.position.x + velocity, transform.position.y);
         }
