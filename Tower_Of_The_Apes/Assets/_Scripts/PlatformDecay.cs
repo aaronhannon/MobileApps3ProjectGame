@@ -11,7 +11,8 @@ public class PlatformDecay : MonoBehaviour
     private float timeLeft1 = 5.0f;
     private float timeLeft2 = 2.0f;
     private float platformCounter;
-  
+    private GameObject camera;
+    private FollowPlayer follow;
 
 
     private bool firstTimer = false;
@@ -24,44 +25,50 @@ public class PlatformDecay : MonoBehaviour
         player = GameObject.Find("Player");
         platParent = GameObject.Find("PlatformContainer");
         platformCounter = platGen.getMaxPlatforms();
+        camera = GameObject.Find("Main Camera");
     }
 
     // Update is called once per frame
     void Update()
     {
 
-
-        timeLeft1 -= Time.deltaTime;
-        //Debug.Log("Time Left: " + timeLeft1);
-        if (timeLeft1 < 0)
+        if(camera.transform.rotation.y > 0 && camera.transform.rotation.y < 0.1)
         {
-            //Debug.Log("FIRST TIMERS UP");
-            firstTimer = true;
-        }
-
-
-        if (!platsCreated)
-        {
-            platsCreated = platGen.getPlatformsDone();
-
-        }
-
-        if (platsCreated)
-        {
-
-            if (firstTimer)
+            follow = camera.GetComponent<FollowPlayer>();
+            follow.enabled = true;
+            timeLeft1 -= Time.deltaTime;
+            //Debug.Log("Time Left: " + timeLeft1);
+            if (timeLeft1 < 0)
             {
-                
-                timeLeft2 -= Time.deltaTime;
-                //Debug.Log("Time Left: " + timeLeft2);
-                if (timeLeft2 < 0 && platformCounter !=0)
+                //Debug.Log("FIRST TIMERS UP");
+                firstTimer = true;
+            }
+
+
+            if (!platsCreated)
+            {
+                platsCreated = platGen.getPlatformsDone();
+
+            }
+
+            if (platsCreated)
+            {
+
+                if (firstTimer)
                 {
-                    //Debug.Log("TIMERS UP");
-                    Destroy(platParent.transform.GetChild(0).gameObject);
-                    timeLeft2 = 2.0f;
-                    platformCounter--;
+
+                    timeLeft2 -= Time.deltaTime;
+                    //Debug.Log("Time Left: " + timeLeft2);
+                    if (timeLeft2 < 0 && platformCounter != 0)
+                    {
+                        //Debug.Log("TIMERS UP");
+                        Destroy(platParent.transform.GetChild(0).gameObject);
+                        timeLeft2 = 2.0f;
+                        platformCounter--;
+                    }
                 }
             }
+       
 
 
 
