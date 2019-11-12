@@ -24,3 +24,5 @@ Name: Test Score: 25
 Name: Test Score: 11
 Name: Test Score: 8
 Name: Test Score: 69
+Name: Test Score: 100
+Name: Test Score: 8
