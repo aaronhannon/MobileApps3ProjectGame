@@ -9,11 +9,13 @@ public class FollowPlayer : MonoBehaviour
 
     private float playerX;
     private float playerY;
+    private GameObject menu;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        menu = GameObject.Find("MainMenu");
+        menu.active = false;
     }
 
     // Update is called once per frame
@@ -22,6 +24,8 @@ public class FollowPlayer : MonoBehaviour
         playerX = player.transform.position.x;
         playerY = player.transform.position.y;
 
-        transform.position = new Vector3(playerX, playerY,-50.0f);
+
+
+        transform.position = new Vector3(playerX, playerY, -22.0f);
     }
 }

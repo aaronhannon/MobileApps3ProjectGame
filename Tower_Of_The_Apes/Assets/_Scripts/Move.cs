@@ -36,6 +36,7 @@ public class Move : MonoBehaviour
     private bool gameOver = false;
     private bool reset = false;
     bool wallJump = false;
+    private bool paused = false;
 
     void Start()
     {
@@ -95,151 +96,187 @@ public class Move : MonoBehaviour
 
         if (gameOver == false)
         {
-            if (highestPlatform > 5)
+
+            if (Input.GetKeyUp("escape"))
             {
-                floor.GetComponent<BoxCollider2D>().enabled = false;
-                floor.GetComponent<SpriteRenderer>().enabled = false;
-
-
-                if (transform.position.y < floor.transform.position.y)
+                Debug.Log("ESC Pressed");
+                if (paused == false)
                 {
-                    gameOver = true;
-                }
-            }
-
-            if (gameOver)
-            {
-                Debug.Log("GAME OVER!!!");
-                FileHandler fh = new FileHandler();
-                fh.WriteString("Name: Test Score: " + highestPlatform.ToString() + "\n");
-                floor.GetComponent<BoxCollider2D>().enabled = true;
-                floor.GetComponent<SpriteRenderer>().enabled = true;
-                transform.position = new Vector2(1,5);
-                //reset = true;
-            }
-
-            //WALL COLLISION
-            if (transform.position.x < -11)
-            {
-                transform.position = new Vector2(-11, transform.position.y);
-                velocity = 0.0f;
-                //Debug.Log("Wall Collision");
-            }
-
-            if (transform.position.x > 11)
-            {
-                
-                transform.position = new Vector2(11, transform.position.y);
-                velocity = 0.0f;
-
-            }
-
-            if (transform.position.x > 10 || transform.position.x < -10)
-            {
-
-                //Debug.Log("Wall Collision");
-                if (Input.GetKeyDown("space"))
-                {
-                    wallJump = true;
-                    jumpPower = 0.0f;
-                }
-
-                if (wallJump == true && jumpPower < 1.5f)
-                {
-                    Debug.Log("Wall Jump");
-                    jumpPower += 0.05f;
-                    transform.position = new Vector2(transform.position.x, transform.position.y + jumpPower);
-                }
-            }
-
-            //KEYPRESSES
-            if (Input.GetAxis("Horizontal") > 0 || Input.GetAxis("Horizontal") < 0)
-            {
-
-                velocity += Input.GetAxis("Horizontal") * acc;
-
-                if (Input.GetAxis("Horizontal") < 0 && velocity > 0)
-                {
-
-                    velocity -= 0.1f;
-                    //Debug.Log(velocity);
-                }
-
-                if (Input.GetAxis("Horizontal") > 0 && velocity < 0)
-                {
-
-                    velocity += 0.1f;
-                    //Debug.Log(velocity);
-                }
-
-                //Debug.Log(velocity);
-            }
-
-            //ROTATION OF PLAYER
-            if (grounded == false && maxJump == 1.0f)
-            {
-                // Debug.Log("ROTATING");
-                if (velocity > 0)
-                {
-                    transform.Rotate(Vector3.back * 7);
+                    Debug.Log("Paused");
+                    //Time.timeScale = 0.0f;
+                    paused = true;
+                    velocity = 0.0f;
+                    
                 }
                 else
                 {
-                    transform.Rotate(Vector3.forward * 7);
+                    Debug.Log("UnPaused");
+                    //Time.timeScale = 1.0f;
+                    paused = false;
+                    
+
                 }
 
-
-            }
-
-            //JUMP HIGHER AT A CERTAIN VELOCITY
-            //if ((velocity < -changeSpeed || velocity > changeSpeed) && grounded == true)
-            //{
-            //    //Debug.Log("MAX JUMP");
-            //    maxJump = 1.0f;
-            //}
-            if ((velocity > -changeSpeed || velocity < changeSpeed) && grounded == true)
-            {
-                maxJump = 0.5f;
-            }
-
-            //JUMP KEYPRESS
-            if (Input.GetKeyDown("space") && doubleJump !=2)
-            {
-                inAir = true;
-                grounded = false;
-                Debug.Log("DoubleCounter" + doubleJump);
                 
-                doubleJump++;
 
 
 
             }
 
-            if (doubleJump == 2)
+            if (paused == true)
             {
-                maxJump = 1.0f;
+                transform.position = new Vector2(transform.position.x, transform.position.y);
             }
 
-            if (inAir == true && jumpPower < maxJump)
+            if (paused == false)
             {
-                //Debug.Log("HerE");
+                if (highestPlatform > 5)
+                {
+                    floor.GetComponent<BoxCollider2D>().enabled = false;
+                    floor.GetComponent<SpriteRenderer>().enabled = false;
 
-                jumpPower += 0.05f;
-                transform.position = new Vector2(transform.position.x, transform.position.y + jumpPower);
+
+                    if (transform.position.y < floor.transform.position.y)
+                    {
+                        gameOver = true;
+                    }
+                }
+
+                if (gameOver)
+                {
+                    Debug.Log("GAME OVER!!!");
+                    FileHandler fh = new FileHandler();
+                    fh.WriteString("Name: Test Score: " + highestPlatform.ToString() + "\n");
+                    floor.GetComponent<BoxCollider2D>().enabled = true;
+                    floor.GetComponent<SpriteRenderer>().enabled = true;
+                    transform.position = new Vector2(1, 5);
+                    //reset = true;
+                }
+
+                //WALL COLLISION
+                if (transform.position.x < -11)
+                {
+                    transform.position = new Vector2(-11, transform.position.y);
+                    velocity = 0.0f;
+                    //Debug.Log("Wall Collision");
+                }
+
+                if (transform.position.x > 11)
+                {
+
+                    transform.position = new Vector2(11, transform.position.y);
+                    velocity = 0.0f;
+
+                }
+
+                if (transform.position.x > 10 || transform.position.x < -10)
+                {
+
+                    //Debug.Log("Wall Collision");
+                    if (Input.GetKeyDown("space"))
+                    {
+                        wallJump = true;
+                        jumpPower = 0.0f;
+                    }
+
+                    if (wallJump == true && jumpPower < 1.5f)
+                    {
+                        Debug.Log("Wall Jump");
+                        jumpPower += 0.05f;
+                        transform.position = new Vector2(transform.position.x, transform.position.y + jumpPower);
+                    }
+                }
+
+                //KEYPRESSES
+                if (Input.GetAxis("Horizontal") > 0 || Input.GetAxis("Horizontal") < 0)
+                {
+
+                    velocity += Input.GetAxis("Horizontal") * acc;
+
+                    if (Input.GetAxis("Horizontal") < 0 && velocity > 0)
+                    {
+
+                        velocity -= 0.1f;
+                        //Debug.Log(velocity);
+                    }
+
+                    if (Input.GetAxis("Horizontal") > 0 && velocity < 0)
+                    {
+
+                        velocity += 0.1f;
+                        //Debug.Log(velocity);
+                    }
+
+                    //Debug.Log(velocity);
+                }
+
+                //ROTATION OF PLAYER
+                if (grounded == false && maxJump == 1.0f)
+                {
+                    // Debug.Log("ROTATING");
+                    if (velocity > 0)
+                    {
+                        transform.Rotate(Vector3.back * 7);
+                    }
+                    else
+                    {
+                        transform.Rotate(Vector3.forward * 7);
+                    }
+
+
+                }
+
+                //JUMP HIGHER AT A CERTAIN VELOCITY
+                //if ((velocity < -changeSpeed || velocity > changeSpeed) && grounded == true)
+                //{
+                //    //Debug.Log("MAX JUMP");
+                //    maxJump = 1.0f;
+                //}
+                if ((velocity > -changeSpeed || velocity < changeSpeed) && grounded == true)
+                {
+                    maxJump = 0.5f;
+                }
+
+                //JUMP KEYPRESS
+                if (Input.GetKeyDown("space") && doubleJump != 2)
+                {
+                    inAir = true;
+                    grounded = false;
+                    Debug.Log("DoubleCounter" + doubleJump);
+
+                    doubleJump++;
+
+
+
+                }
+
+                if (doubleJump == 2)
+                {
+                    maxJump = 1.0f;
+                }
+
+                if (inAir == true && jumpPower < maxJump)
+                {
+                    //Debug.Log("HerE");
+
+                    jumpPower += 0.05f;
+                    transform.position = new Vector2(transform.position.x, transform.position.y + jumpPower);
+                }
+
+                //if (inAir == true && jumpPower < maxJump)
+                //{
+                //    //Debug.Log("HerE");
+                //    if(doubleJump == 2)
+                //    {
+                //        maxJump = 1.0f;
+                //    }
+                //    jumpPower += 0.05f;
+                //    transform.position = new Vector2(transform.position.x, transform.position.y + jumpPower);
+                //}
+
+                transform.position = new Vector2(transform.position.x + velocity, transform.position.y);
             }
-
-            //if (inAir == true && jumpPower < maxJump)
-            //{
-            //    //Debug.Log("HerE");
-            //    if(doubleJump == 2)
-            //    {
-            //        maxJump = 1.0f;
-            //    }
-            //    jumpPower += 0.05f;
-            //    transform.position = new Vector2(transform.position.x, transform.position.y + jumpPower);
-            //}
-
-            transform.position = new Vector2(transform.position.x + velocity, transform.position.y);
+           
         }
     }
 

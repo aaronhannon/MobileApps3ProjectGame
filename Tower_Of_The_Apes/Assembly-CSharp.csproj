@@ -80,6 +80,7 @@
     <Compile Include="Assets\_Scripts\Platform.cs" />
     <Compile Include="Assets\_Scripts\PlatformDecay.cs" />
     <Compile Include="Assets\_Scripts\PlatformGenerator.cs" />
+    <Compile Include="Assets\_Scripts\TitleCard.cs" />
     <Compile Include="Assets\_Scripts\WallCollider.cs" />
     <None Include="Assets\Resources\test.txt" />
     <Reference Include="Unity.Timeline.Editor">
