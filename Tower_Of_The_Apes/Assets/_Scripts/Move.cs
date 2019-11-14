@@ -284,4 +284,9 @@ public class Move : MonoBehaviour
     {
         return platformCounter;
     }
+
+    public bool isPaused()
+    {
+        return paused;
+    }
 }

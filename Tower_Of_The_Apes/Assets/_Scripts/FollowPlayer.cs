@@ -6,7 +6,7 @@ public class FollowPlayer : MonoBehaviour
 {
 
     public GameObject player;
-
+    public float cameraZoom = -28.0f;
     private float playerX;
     private float playerY;
     private GameObject menu;
@@ -26,6 +26,6 @@ public class FollowPlayer : MonoBehaviour
 
 
 
-        transform.position = new Vector3(playerX, playerY, -22.0f);
+        transform.position = new Vector3(playerX, playerY, cameraZoom);
     }
 }

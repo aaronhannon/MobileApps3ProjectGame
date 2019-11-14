@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class TitleCard : MonoBehaviour
 {
+    private bool rotateLeft = true;
     // Start is called before the first frame update
     void Start()
     {
@@ -19,10 +20,28 @@ public class TitleCard : MonoBehaviour
         }
         else
         {
-            Debug.Log(transform.rotation.y);
+            //Debug.Log(transform.rotation.y);
 
-
+           // if (transform.rotation.y <= 0 && rotateLeft == true)
+           // {
                 transform.Rotate(new Vector3(0, transform.rotation.z + 0.5f, 0), Space.World);
+           // }
+
+            //else
+            //{
+            //    rotateLeft = false;
+            //}
+
+            //if(transform.rotation.y >= 0 && rotateLeft == false)
+            //{
+                
+            //    transform.Rotate(new Vector3(0, transform.rotation.z - 0.5f, 0), Space.World);
+            //}
+            //else
+            //{
+            //    rotateLeft = true;
+            //}
+                
             
             
         }

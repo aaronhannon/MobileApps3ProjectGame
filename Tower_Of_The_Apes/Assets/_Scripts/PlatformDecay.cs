@@ -13,6 +13,7 @@ public class PlatformDecay : MonoBehaviour
     private float platformCounter;
     private GameObject camera;
     private FollowPlayer follow;
+    private bool paused = false;
 
 
     private bool firstTimer = false;
@@ -26,6 +27,7 @@ public class PlatformDecay : MonoBehaviour
         platParent = GameObject.Find("PlatformContainer");
         platformCounter = platGen.getMaxPlatforms();
         camera = GameObject.Find("Main Camera");
+
     }
 
     // Update is called once per frame
@@ -36,38 +38,46 @@ public class PlatformDecay : MonoBehaviour
         {
             follow = camera.GetComponent<FollowPlayer>();
             follow.enabled = true;
-            timeLeft1 -= Time.deltaTime;
-            //Debug.Log("Time Left: " + timeLeft1);
-            if (timeLeft1 < 0)
+
+            paused = player.GetComponent<Move>().isPaused();
+
+            if (paused == false)
             {
-                //Debug.Log("FIRST TIMERS UP");
-                firstTimer = true;
-            }
+                timeLeft1 -= Time.deltaTime;
+                //Debug.Log("Time Left: " + timeLeft1);
+                if (timeLeft1 < 0)
+                {
+                    //Debug.Log("FIRST TIMERS UP");
+                    firstTimer = true;
+                }
 
 
-            if (!platsCreated)
-            {
-                platsCreated = platGen.getPlatformsDone();
+                if (!platsCreated)
+                {
+                    platsCreated = platGen.getPlatformsDone();
 
-            }
+                }
 
-            if (platsCreated)
-            {
-
-                if (firstTimer)
+                if (platsCreated)
                 {
 
-                    timeLeft2 -= Time.deltaTime;
-                    //Debug.Log("Time Left: " + timeLeft2);
-                    if (timeLeft2 < 0 && platformCounter != 0)
+                    if (firstTimer)
                     {
-                        //Debug.Log("TIMERS UP");
-                        Destroy(platParent.transform.GetChild(0).gameObject);
-                        timeLeft2 = 2.0f;
-                        platformCounter--;
+
+                        timeLeft2 -= Time.deltaTime;
+                        //Debug.Log("Time Left: " + timeLeft2);
+                        if (timeLeft2 < 0 && platformCounter != 0)
+                        {
+                            //Debug.Log("TIMERS UP");
+                            Destroy(platParent.transform.GetChild(0).gameObject);
+                            timeLeft2 = 2.0f;
+                            platformCounter--;
+                        }
                     }
                 }
             }
+
+            
        
 
 

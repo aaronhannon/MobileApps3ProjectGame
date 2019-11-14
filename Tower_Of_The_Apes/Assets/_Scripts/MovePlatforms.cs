@@ -11,6 +11,7 @@ public class MovePlatforms : MonoBehaviour
     private float platformSpeed = 0.01f;
     private int moveDirection;
     private float platformCounter;
+    private bool paused = false;
 
     // Start is called before the first frame update
     void Start()
@@ -22,57 +23,64 @@ public class MovePlatforms : MonoBehaviour
     void Update()
     {
 
-        platformCounter = player.GetComponent<Move>().getPlatformCounter();
+        paused = player.GetComponent<Move>().isPaused();
 
-        switch (platformCounter)
+        if (paused == false)
         {
-            case 0:
-                platformSpeed = 0.00f;
-                break;
+            platformCounter = player.GetComponent<Move>().getPlatformCounter();
 
-            case 3:
-                platformSpeed = 0.01f;
-                break;
-
-            case 5:
-                platformSpeed = .05f;
-                break;
-
-            default:
-                break;
-        }
-
-
-        if (!platCreated)
-        {
-            floor = GameObject.Find("Floor");
-            platGen = floor.GetComponent<PlatformGenerator>();
-            platCreated = platGen.getPlatformsDone();
-            moveDirection = Random.RandomRange(0, 2);
-           // Debug.Log(moveDirection);
-        }
-        
-        
-        if (platCreated)
-        {
-            if (moveDirection == 0)
+            switch (platformCounter)
             {
-                transform.position = new Vector2(transform.position.x - platformSpeed, transform.position.y);
+                case 0:
+                    platformSpeed = 0.01f;
+                    break;
 
-                if (transform.position.x - transform.localScale.x / 2 < -11)
+                case 3:
+                    platformSpeed = 0.05f;
+                    break;
+
+                case 5:
+                    platformSpeed = .1f;
+                    break;
+
+                default:
+                    break;
+            }
+
+
+            if (!platCreated)
+            {
+                floor = GameObject.Find("Floor");
+                platGen = floor.GetComponent<PlatformGenerator>();
+                platCreated = platGen.getPlatformsDone();
+                moveDirection = Random.RandomRange(0, 2);
+                // Debug.Log(moveDirection);
+            }
+
+
+            if (platCreated)
+            {
+                if (moveDirection == 0)
                 {
-                    moveDirection = 1;
+                    transform.position = new Vector2(transform.position.x - platformSpeed, transform.position.y);
+
+                    if (transform.position.x - transform.localScale.x / 2 < -11)
+                    {
+                        moveDirection = 1;
+                    }
+                }
+                else
+                {
+                    transform.position = new Vector2(transform.position.x + platformSpeed, transform.position.y);
+
+                    if (transform.position.x + transform.localScale.x / 2 > 11)
+                    {
+                        moveDirection = 0;
+                    }
                 }
             }
-            else
-            {
-                transform.position = new Vector2(transform.position.x + platformSpeed, transform.position.y);
-
-                if (transform.position.x + transform.localScale.x / 2 > 11)
-                {
-                    moveDirection = 0;
-                }
-            }
         }
+
+
     }
 }
