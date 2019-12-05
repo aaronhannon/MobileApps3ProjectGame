@@ -5,16 +5,23 @@ using UnityEngine;
 public class MenuScript : MonoBehaviour
 {
     private GameObject camera;
+    private AudioSource audioData;
     private bool playClicked = false;
     private bool optionClicked = false;
     private bool backClicked = false;
-    private Quaternion targetRotation;
+    private bool audioPlayed = false;
 
     // Start is called before the first frame update
     void Start()
     {
         camera = GameObject.Find("Main Camera");
+        audioData = GetComponent<AudioSource>();
+        
+    }
 
+    void playAudio()
+    {
+        audioData.Play(0);
     }
 
     void Update()
@@ -23,6 +30,12 @@ public class MenuScript : MonoBehaviour
         if (playClicked == true)
         {
 
+            if(audioPlayed == false)
+            {
+                playAudio();
+                audioPlayed = true;
+            }
+            
             if (camera.transform.rotation.y < 0)
             {
                 camera.transform.Rotate(new Vector3(0, camera.transform.rotation.y + 1.5f, 0), Space.World);

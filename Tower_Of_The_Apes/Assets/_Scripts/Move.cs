@@ -210,21 +210,21 @@ public class Move : MonoBehaviour
                     //Debug.Log(velocity);
                 }
 
-                //ROTATION OF PLAYER
-                if (grounded == false && maxJump == 1.0f)
-                {
-                    // Debug.Log("ROTATING");
-                    if (velocity > 0)
-                    {
-                        transform.Rotate(Vector3.back * 7);
-                    }
-                    else
-                    {
-                        transform.Rotate(Vector3.forward * 7);
-                    }
+                ////ROTATION OF PLAYER
+                //if (grounded == false && maxJump == 1.0f)
+                //{
+                //    // Debug.Log("ROTATING");
+                //    if (velocity > 0)
+                //    {
+                //        transform.Rotate(Vector3.back * 7);
+                //    }
+                //    else
+                //    {
+                //        transform.Rotate(Vector3.forward * 7);
+                //    }
 
 
-                }
+                //}
 
                 //JUMP HIGHER AT A CERTAIN VELOCITY
                 //if ((velocity < -changeSpeed || velocity > changeSpeed) && grounded == true)
