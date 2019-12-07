@@ -75,6 +75,7 @@
     <Compile Include="Assets\_Scripts\ChangeVolume.cs" />
     <Compile Include="Assets\_Scripts\FileHandler.cs" />
     <Compile Include="Assets\_Scripts\FollowPlayer.cs" />
+    <Compile Include="Assets\_Scripts\HighScore.cs" />
     <Compile Include="Assets\_Scripts\MenuScript.cs" />
     <Compile Include="Assets\_Scripts\Move.cs" />
     <Compile Include="Assets\_Scripts\MovePlatforms.cs" />

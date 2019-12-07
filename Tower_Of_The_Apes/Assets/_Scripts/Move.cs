@@ -37,11 +37,12 @@ public class Move : MonoBehaviour
     private bool reset = false;
     bool wallJump = false;
     private bool paused = false;
+    FileHandler fh;
 
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-
+        fh = new FileHandler();
         floor = GameObject.Find("Floor");
 
     }
@@ -145,8 +146,8 @@ public class Move : MonoBehaviour
                 if (gameOver)
                 {
                     Debug.Log("GAME OVER!!!");
-                    FileHandler fh = new FileHandler();
-                    fh.WriteString("Name: Test Score: " + highestPlatform.ToString() + "\n");
+                    
+                    fh.WriteString("Aaron",highestPlatform);
                     floor.GetComponent<BoxCollider2D>().enabled = true;
                     floor.GetComponent<SpriteRenderer>().enabled = true;
                     transform.position = new Vector2(1, 5);
