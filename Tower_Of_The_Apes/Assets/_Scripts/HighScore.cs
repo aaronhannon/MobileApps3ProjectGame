@@ -7,6 +7,6 @@ using UnityEngine;
 public class HighScore { 
 
     public string name;
-    public float highScore;
+    public string highScore;
 
 }

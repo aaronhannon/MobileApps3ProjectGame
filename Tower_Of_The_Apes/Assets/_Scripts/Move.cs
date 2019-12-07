@@ -147,7 +147,7 @@ public class Move : MonoBehaviour
                 {
                     Debug.Log("GAME OVER!!!");
                     
-                    fh.WriteString("Aaron",highestPlatform);
+                    fh.WriteString("Aaron",highestPlatform.ToString());
                     floor.GetComponent<BoxCollider2D>().enabled = true;
                     floor.GetComponent<SpriteRenderer>().enabled = true;
                     transform.position = new Vector2(1, 5);
