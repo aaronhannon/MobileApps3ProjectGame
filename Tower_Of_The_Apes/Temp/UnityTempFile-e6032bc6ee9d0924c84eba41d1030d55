@@ -1,14 +1,11 @@
 /target:library
 /nowarn:0169
-/out:Temp/com.unity.multiplayer-hlapi.Runtime.dll
+/out:Temp/Assembly-CSharp.dll
 /debug:portable
 /optimize-
 /nostdlib+
 /preferreduilang:en-US
 /langversion:latest
-/reference:Library/ScriptAssemblies/UnityEditor.UI.dll
-/reference:Library/ScriptAssemblies/Unity.2D.Tilemap.Editor.dll
-/reference:Library/ScriptAssemblies/UnityEngine.UI.dll
 /reference:"C:/Program Files/Unity/Hub/Editor/2019.2.6f1/Editor/Data/Managed/UnityEngine/UnityEngine.dll"
 /reference:"C:/Program Files/Unity/Hub/Editor/2019.2.6f1/Editor/Data/Managed/UnityEngine/UnityEngine.AIModule.dll"
 /reference:"C:/Program Files/Unity/Hub/Editor/2019.2.6f1/Editor/Data/Managed/UnityEngine/UnityEngine.ARModule.dll"
@@ -70,18 +67,28 @@
 /reference:"C:/Program Files/Unity/Hub/Editor/2019.2.6f1/Editor/Data/Managed/UnityEngine/UnityEngine.WindModule.dll"
 /reference:"C:/Program Files/Unity/Hub/Editor/2019.2.6f1/Editor/Data/Managed/UnityEngine/UnityEngine.XRModule.dll"
 /reference:"C:/Program Files/Unity/Hub/Editor/2019.2.6f1/Editor/Data/Managed/UnityEditor.dll"
-/reference:"C:/Program Files/Unity/Hub/Editor/2019.2.6f1/Editor/Data/UnityExtensions/Unity/UnityVR/Editor/UnityEditor.VR.dll"
-/reference:"C:/Program Files/Unity/Hub/Editor/2019.2.6f1/Editor/Data/Managed/UnityEditor.Graphs.dll"
-/reference:"C:/Program Files/Unity/Hub/Editor/2019.2.6f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll"
-/reference:"C:/Program Files/Unity/Hub/Editor/2019.2.6f1/Editor/Data/PlaybackEngines/AndroidPlayer/UnityEditor.Android.Extensions.dll"
-/reference:"C:/Program Files (x86)/Microsoft Visual Studio Tools for Unity/16.0/Editor/SyntaxTree.VisualStudio.Unity.Bridge.dll"
-/reference:C:/Users/Aaron/Desktop/MobileApps3ProjectGame/Tower_Of_The_Apes/Library/PackageCache/com.unity.ads@2.0.8/UnityEngine.Advertisements.dll
-/reference:C:/Users/Aaron/Desktop/MobileApps3ProjectGame/Tower_Of_The_Apes/Library/PackageCache/com.unity.ads@2.0.8/Editor/UnityEditor.Advertisements.dll
-/reference:C:/Users/Aaron/Desktop/MobileApps3ProjectGame/Tower_Of_The_Apes/Library/PackageCache/com.unity.analytics@3.3.2/Unity.Analytics.Editor.dll
-/reference:C:/Users/Aaron/Desktop/MobileApps3ProjectGame/Tower_Of_The_Apes/Library/PackageCache/com.unity.analytics@3.3.2/Unity.Analytics.StandardEvents.dll
-/reference:C:/Users/Aaron/Desktop/MobileApps3ProjectGame/Tower_Of_The_Apes/Library/PackageCache/com.unity.analytics@3.3.2/Unity.Analytics.Tracker.dll
-/reference:C:/Users/Aaron/Desktop/MobileApps3ProjectGame/Tower_Of_The_Apes/Library/PackageCache/com.unity.purchasing@2.0.6/UnityEngine.Purchasing.dll
-/reference:C:/Users/Aaron/Desktop/MobileApps3ProjectGame/Tower_Of_The_Apes/Library/PackageCache/com.unity.purchasing@2.0.6/Editor/UnityEditor.Purchasing.dll
+/reference:Library/ScriptAssemblies/Unity.Timeline.Editor.dll
+/reference:Library/ScriptAssemblies/com.unity.multiplayer-hlapi.Editor.dll
+/reference:Library/ScriptAssemblies/Unity.VSCode.Editor.dll
+/reference:Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll
+/reference:Library/ScriptAssemblies/UnityEngine.UI.dll
+/reference:Library/ScriptAssemblies/Unity.Timeline.dll
+/reference:Library/ScriptAssemblies/Unity.CollabProxy.Editor.dll
+/reference:Library/ScriptAssemblies/com.unity.multiplayer-weaver.Editor.dll
+/reference:Library/ScriptAssemblies/UnityEngine.XR.LegacyInputHelpers.dll
+/reference:Library/ScriptAssemblies/Unity.Rider.Editor.dll
+/reference:Library/ScriptAssemblies/Unity.2D.Sprite.Editor.dll
+/reference:Library/ScriptAssemblies/Unity.2D.Tilemap.Editor.dll
+/reference:Library/ScriptAssemblies/UnityEditor.SpatialTracking.dll
+/reference:Library/ScriptAssemblies/UnityEngine.SpatialTracking.dll
+/reference:Library/ScriptAssemblies/Unity.TextMeshPro.dll
+/reference:Library/ScriptAssemblies/Unity.Analytics.DataPrivacy.dll
+/reference:Library/ScriptAssemblies/UnityEditor.XR.LegacyInputHelpers.dll
+/reference:Library/ScriptAssemblies/UnityEditor.UI.dll
+/reference:Library/ScriptAssemblies/com.unity.multiplayer-hlapi.Runtime.dll
+/reference:C:/Users/aaron/OneDrive/Documents/GitHub/MobileApps3ProjectGame/Tower_Of_The_Apes/Library/PackageCache/com.unity.analytics@3.3.2/Unity.Analytics.Editor.dll
+/reference:C:/Users/aaron/OneDrive/Documents/GitHub/MobileApps3ProjectGame/Tower_Of_The_Apes/Library/PackageCache/com.unity.analytics@3.3.2/Unity.Analytics.StandardEvents.dll
+/reference:C:/Users/aaron/OneDrive/Documents/GitHub/MobileApps3ProjectGame/Tower_Of_The_Apes/Library/PackageCache/com.unity.analytics@3.3.2/Unity.Analytics.Tracker.dll
 /reference:"C:/Program Files/Unity/Hub/Editor/2019.2.6f1/Editor/Data/NetStandard/ref/2.0.0/netstandard.dll"
 /reference:"C:/Program Files/Unity/Hub/Editor/2019.2.6f1/Editor/Data/NetStandard/compat/2.0.0/shims/netstandard/Microsoft.Win32.Primitives.dll"
 /reference:"C:/Program Files/Unity/Hub/Editor/2019.2.6f1/Editor/Data/NetStandard/compat/2.0.0/shims/netstandard/System.AppContext.dll"
@@ -294,47 +301,25 @@
 /define:ENABLE_LEGACY_INPUT_MANAGER
 /define:CSHARP_7_OR_LATER
 /define:CSHARP_7_3_OR_NEWER
-C:\Users\Aaron\Desktop\MobileApps3ProjectGame\Tower_Of_The_Apes\Library\PackageCache\com.unity.multiplayer-hlapi@1.0.2\Runtime\ChannelBuffer.cs
-C:\Users\Aaron\Desktop\MobileApps3ProjectGame\Tower_Of_The_Apes\Library\PackageCache\com.unity.multiplayer-hlapi@1.0.2\Runtime\ChannelPacket.cs
-C:\Users\Aaron\Desktop\MobileApps3ProjectGame\Tower_Of_The_Apes\Library\PackageCache\com.unity.multiplayer-hlapi@1.0.2\Runtime\ClientScene.cs
-C:\Users\Aaron\Desktop\MobileApps3ProjectGame\Tower_Of_The_Apes\Library\PackageCache\com.unity.multiplayer-hlapi@1.0.2\Runtime\ConnectionArray.cs
-C:\Users\Aaron\Desktop\MobileApps3ProjectGame\Tower_Of_The_Apes\Library\PackageCache\com.unity.multiplayer-hlapi@1.0.2\Runtime\CustomAttributes.cs
-C:\Users\Aaron\Desktop\MobileApps3ProjectGame\Tower_Of_The_Apes\Library\PackageCache\com.unity.multiplayer-hlapi@1.0.2\Runtime\DefaultNetworkTransport.cs
-C:\Users\Aaron\Desktop\MobileApps3ProjectGame\Tower_Of_The_Apes\Library\PackageCache\com.unity.multiplayer-hlapi@1.0.2\Runtime\DotNetCompatibility.cs
-C:\Users\Aaron\Desktop\MobileApps3ProjectGame\Tower_Of_The_Apes\Library\PackageCache\com.unity.multiplayer-hlapi@1.0.2\Runtime\INetworkTransport.cs
-C:\Users\Aaron\Desktop\MobileApps3ProjectGame\Tower_Of_The_Apes\Library\PackageCache\com.unity.multiplayer-hlapi@1.0.2\Runtime\LocalClient.cs
-C:\Users\Aaron\Desktop\MobileApps3ProjectGame\Tower_Of_The_Apes\Library\PackageCache\com.unity.multiplayer-hlapi@1.0.2\Runtime\LocalConnections.cs
-C:\Users\Aaron\Desktop\MobileApps3ProjectGame\Tower_Of_The_Apes\Library\PackageCache\com.unity.multiplayer-hlapi@1.0.2\Runtime\LogFilter.cs
-C:\Users\Aaron\Desktop\MobileApps3ProjectGame\Tower_Of_The_Apes\Library\PackageCache\com.unity.multiplayer-hlapi@1.0.2\Runtime\Messages.cs
-C:\Users\Aaron\Desktop\MobileApps3ProjectGame\Tower_Of_The_Apes\Library\PackageCache\com.unity.multiplayer-hlapi@1.0.2\Runtime\NetworkAnimator.cs
-C:\Users\Aaron\Desktop\MobileApps3ProjectGame\Tower_Of_The_Apes\Library\PackageCache\com.unity.multiplayer-hlapi@1.0.2\Runtime\NetworkBehaviour.cs
-C:\Users\Aaron\Desktop\MobileApps3ProjectGame\Tower_Of_The_Apes\Library\PackageCache\com.unity.multiplayer-hlapi@1.0.2\Runtime\NetworkBuffer.cs
-C:\Users\Aaron\Desktop\MobileApps3ProjectGame\Tower_Of_The_Apes\Library\PackageCache\com.unity.multiplayer-hlapi@1.0.2\Runtime\NetworkCallbacks.cs
-C:\Users\Aaron\Desktop\MobileApps3ProjectGame\Tower_Of_The_Apes\Library\PackageCache\com.unity.multiplayer-hlapi@1.0.2\Runtime\NetworkClient.cs
-C:\Users\Aaron\Desktop\MobileApps3ProjectGame\Tower_Of_The_Apes\Library\PackageCache\com.unity.multiplayer-hlapi@1.0.2\Runtime\NetworkConnection.cs
-C:\Users\Aaron\Desktop\MobileApps3ProjectGame\Tower_Of_The_Apes\Library\PackageCache\com.unity.multiplayer-hlapi@1.0.2\Runtime\NetworkCRC.cs
-C:\Users\Aaron\Desktop\MobileApps3ProjectGame\Tower_Of_The_Apes\Library\PackageCache\com.unity.multiplayer-hlapi@1.0.2\Runtime\NetworkDiscovery.cs
-C:\Users\Aaron\Desktop\MobileApps3ProjectGame\Tower_Of_The_Apes\Library\PackageCache\com.unity.multiplayer-hlapi@1.0.2\Runtime\NetworkHash128.cs
-C:\Users\Aaron\Desktop\MobileApps3ProjectGame\Tower_Of_The_Apes\Library\PackageCache\com.unity.multiplayer-hlapi@1.0.2\Runtime\NetworkIdentity.cs
-C:\Users\Aaron\Desktop\MobileApps3ProjectGame\Tower_Of_The_Apes\Library\PackageCache\com.unity.multiplayer-hlapi@1.0.2\Runtime\NetworkInstanceId.cs
-C:\Users\Aaron\Desktop\MobileApps3ProjectGame\Tower_Of_The_Apes\Library\PackageCache\com.unity.multiplayer-hlapi@1.0.2\Runtime\NetworkLobbyManager.cs
-C:\Users\Aaron\Desktop\MobileApps3ProjectGame\Tower_Of_The_Apes\Library\PackageCache\com.unity.multiplayer-hlapi@1.0.2\Runtime\NetworkLobbyPlayer.cs
-C:\Users\Aaron\Desktop\MobileApps3ProjectGame\Tower_Of_The_Apes\Library\PackageCache\com.unity.multiplayer-hlapi@1.0.2\Runtime\NetworkManager.cs
-C:\Users\Aaron\Desktop\MobileApps3ProjectGame\Tower_Of_The_Apes\Library\PackageCache\com.unity.multiplayer-hlapi@1.0.2\Runtime\NetworkManagerHUD.cs
-C:\Users\Aaron\Desktop\MobileApps3ProjectGame\Tower_Of_The_Apes\Library\PackageCache\com.unity.multiplayer-hlapi@1.0.2\Runtime\NetworkMessageHandlers.cs
-C:\Users\Aaron\Desktop\MobileApps3ProjectGame\Tower_Of_The_Apes\Library\PackageCache\com.unity.multiplayer-hlapi@1.0.2\Runtime\NetworkMigrationManager.cs
-C:\Users\Aaron\Desktop\MobileApps3ProjectGame\Tower_Of_The_Apes\Library\PackageCache\com.unity.multiplayer-hlapi@1.0.2\Runtime\NetworkProximityChecker.cs
-C:\Users\Aaron\Desktop\MobileApps3ProjectGame\Tower_Of_The_Apes\Library\PackageCache\com.unity.multiplayer-hlapi@1.0.2\Runtime\NetworkReader.cs
-C:\Users\Aaron\Desktop\MobileApps3ProjectGame\Tower_Of_The_Apes\Library\PackageCache\com.unity.multiplayer-hlapi@1.0.2\Runtime\NetworkScene.cs
-C:\Users\Aaron\Desktop\MobileApps3ProjectGame\Tower_Of_The_Apes\Library\PackageCache\com.unity.multiplayer-hlapi@1.0.2\Runtime\NetworkSceneId.cs
-C:\Users\Aaron\Desktop\MobileApps3ProjectGame\Tower_Of_The_Apes\Library\PackageCache\com.unity.multiplayer-hlapi@1.0.2\Runtime\NetworkServer.cs
-C:\Users\Aaron\Desktop\MobileApps3ProjectGame\Tower_Of_The_Apes\Library\PackageCache\com.unity.multiplayer-hlapi@1.0.2\Runtime\NetworkServerSimple.cs
-C:\Users\Aaron\Desktop\MobileApps3ProjectGame\Tower_Of_The_Apes\Library\PackageCache\com.unity.multiplayer-hlapi@1.0.2\Runtime\NetworkStartPosition.cs
-C:\Users\Aaron\Desktop\MobileApps3ProjectGame\Tower_Of_The_Apes\Library\PackageCache\com.unity.multiplayer-hlapi@1.0.2\Runtime\NetworkTranformChild.cs
-C:\Users\Aaron\Desktop\MobileApps3ProjectGame\Tower_Of_The_Apes\Library\PackageCache\com.unity.multiplayer-hlapi@1.0.2\Runtime\NetworkTransform.cs
-C:\Users\Aaron\Desktop\MobileApps3ProjectGame\Tower_Of_The_Apes\Library\PackageCache\com.unity.multiplayer-hlapi@1.0.2\Runtime\NetworkTransformVisualizer.cs
-C:\Users\Aaron\Desktop\MobileApps3ProjectGame\Tower_Of_The_Apes\Library\PackageCache\com.unity.multiplayer-hlapi@1.0.2\Runtime\NetworkWriter.cs
-C:\Users\Aaron\Desktop\MobileApps3ProjectGame\Tower_Of_The_Apes\Library\PackageCache\com.unity.multiplayer-hlapi@1.0.2\Runtime\PlayerController.cs
-C:\Users\Aaron\Desktop\MobileApps3ProjectGame\Tower_Of_The_Apes\Library\PackageCache\com.unity.multiplayer-hlapi@1.0.2\Runtime\Properties\AssemblyInfo.cs
-C:\Users\Aaron\Desktop\MobileApps3ProjectGame\Tower_Of_The_Apes\Library\PackageCache\com.unity.multiplayer-hlapi@1.0.2\Runtime\SyncList.cs
-C:\Users\Aaron\Desktop\MobileApps3ProjectGame\Tower_Of_The_Apes\Library\PackageCache\com.unity.multiplayer-hlapi@1.0.2\Runtime\UNetwork.cs
+Assets\__Scripts\Boundaries.cs
+Assets\__Scripts\Bullet.cs
+Assets\__Scripts\Enemy.cs
+Assets\__Scripts\FallingBehaviour.cs
+Assets\__Scripts\PlayerMovement.cs
+Assets\__Scripts\PointSpawner.cs
+Assets\__Scripts\SpawnPoint.cs
+Assets\__Scripts\Utilities\ParentUtils.cs
+Assets\__Scripts\WeaponsController.cs
+Assets\_Scripts\ButtonAnimation.cs
+Assets\_Scripts\ChangeVolume.cs
+Assets\_Scripts\FileHandler.cs
+Assets\_Scripts\FollowPlayer.cs
+Assets\_Scripts\MenuScript.cs
+Assets\_Scripts\Move.cs
+Assets\_Scripts\MovePlatforms.cs
+Assets\_Scripts\Platform.cs
+Assets\_Scripts\PlatformDecay.cs
+Assets\_Scripts\PlatformGenerator.cs
+Assets\_Scripts\PlayAudio.cs
+Assets\_Scripts\TitleCard.cs
+Assets\_Scripts\WallCollider.cs

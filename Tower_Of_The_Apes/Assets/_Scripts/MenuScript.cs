@@ -10,6 +10,8 @@ public class MenuScript : MonoBehaviour
     private bool optionClicked = false;
     private bool backClicked = false;
     private bool audioPlayed = false;
+    private bool scoresClicked = false;
+    private bool backScoreClicked = false;
 
     // Start is called before the first frame update
     void Start()
@@ -78,7 +80,38 @@ public class MenuScript : MonoBehaviour
             }
             //camera.transform.eulerAngles = Vector3.Lerp(camera.transform.eulerAngles, new Vector3(0, 180, 0), Time.deltaTime * 1.5f);
         }
-        
+
+        if (scoresClicked == true)
+        {
+            Debug.Log("Options Camera Y: " + camera.transform.rotation.y);
+
+            if (camera.transform.rotation.z > -0.5)
+            {
+                camera.transform.Rotate(new Vector3(0, 0, camera.transform.rotation.y - 1.5f), Space.World);
+            }
+            else
+            {
+                Debug.Log("STOP");
+                scoresClicked = false;
+            }
+        }
+
+        if (backScoreClicked == true)
+        {
+            Debug.Log("Back Camera Y: " + camera.transform.localRotation.z);
+
+            if (camera.transform.rotation.z <= -0.009f)
+            {
+                Debug.Log("Back Clicked");
+                camera.transform.Rotate(new Vector3(0, 0, camera.transform.rotation.y + 2.0f), Space.World);
+            }
+            else
+            {
+                backScoreClicked = false;
+            }
+
+        }
+
     }
 
     public void play()
@@ -96,6 +129,18 @@ public class MenuScript : MonoBehaviour
         optionClicked = false;
         backClicked = true;
         
+    }
+
+    public void backScores()
+    {
+        scoresClicked = false;
+        backScoreClicked = true;
+
+    }
+
+    public void scores()
+    {
+        scoresClicked = true;
     }
 
 }

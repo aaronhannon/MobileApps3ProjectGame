@@ -6,25 +6,6 @@
 /nostdlib+
 /preferreduilang:en-US
 /langversion:latest
-/reference:Library/ScriptAssemblies/Unity.Timeline.Editor.dll
-/reference:Library/ScriptAssemblies/com.unity.multiplayer-hlapi.Editor.dll
-/reference:Library/ScriptAssemblies/Unity.VSCode.Editor.dll
-/reference:Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll
-/reference:Library/ScriptAssemblies/UnityEngine.UI.dll
-/reference:Library/ScriptAssemblies/Unity.Timeline.dll
-/reference:Library/ScriptAssemblies/Unity.CollabProxy.Editor.dll
-/reference:Library/ScriptAssemblies/com.unity.multiplayer-weaver.Editor.dll
-/reference:Library/ScriptAssemblies/UnityEngine.XR.LegacyInputHelpers.dll
-/reference:Library/ScriptAssemblies/Unity.Rider.Editor.dll
-/reference:Library/ScriptAssemblies/Unity.2D.Sprite.Editor.dll
-/reference:Library/ScriptAssemblies/Unity.2D.Tilemap.Editor.dll
-/reference:Library/ScriptAssemblies/UnityEditor.SpatialTracking.dll
-/reference:Library/ScriptAssemblies/UnityEngine.SpatialTracking.dll
-/reference:Library/ScriptAssemblies/Unity.TextMeshPro.dll
-/reference:Library/ScriptAssemblies/Unity.Analytics.DataPrivacy.dll
-/reference:Library/ScriptAssemblies/UnityEditor.XR.LegacyInputHelpers.dll
-/reference:Library/ScriptAssemblies/UnityEditor.UI.dll
-/reference:Library/ScriptAssemblies/com.unity.multiplayer-hlapi.Runtime.dll
 /reference:"C:/Program Files/Unity/Hub/Editor/2019.2.6f1/Editor/Data/Managed/UnityEngine/UnityEngine.dll"
 /reference:"C:/Program Files/Unity/Hub/Editor/2019.2.6f1/Editor/Data/Managed/UnityEngine/UnityEngine.AIModule.dll"
 /reference:"C:/Program Files/Unity/Hub/Editor/2019.2.6f1/Editor/Data/Managed/UnityEngine/UnityEngine.ARModule.dll"
@@ -86,11 +67,28 @@
 /reference:"C:/Program Files/Unity/Hub/Editor/2019.2.6f1/Editor/Data/Managed/UnityEngine/UnityEngine.WindModule.dll"
 /reference:"C:/Program Files/Unity/Hub/Editor/2019.2.6f1/Editor/Data/Managed/UnityEngine/UnityEngine.XRModule.dll"
 /reference:"C:/Program Files/Unity/Hub/Editor/2019.2.6f1/Editor/Data/Managed/UnityEditor.dll"
-/reference:C:/Users/Aaron/Desktop/MobileApps3ProjectGame/Tower_Of_The_Apes/Library/PackageCache/com.unity.ads@2.0.8/UnityEngine.Advertisements.dll
-/reference:C:/Users/Aaron/Desktop/MobileApps3ProjectGame/Tower_Of_The_Apes/Library/PackageCache/com.unity.analytics@3.3.2/Unity.Analytics.Editor.dll
-/reference:C:/Users/Aaron/Desktop/MobileApps3ProjectGame/Tower_Of_The_Apes/Library/PackageCache/com.unity.analytics@3.3.2/Unity.Analytics.StandardEvents.dll
-/reference:C:/Users/Aaron/Desktop/MobileApps3ProjectGame/Tower_Of_The_Apes/Library/PackageCache/com.unity.analytics@3.3.2/Unity.Analytics.Tracker.dll
-/reference:C:/Users/Aaron/Desktop/MobileApps3ProjectGame/Tower_Of_The_Apes/Library/PackageCache/com.unity.purchasing@2.0.6/UnityEngine.Purchasing.dll
+/reference:Library/ScriptAssemblies/Unity.Timeline.Editor.dll
+/reference:Library/ScriptAssemblies/com.unity.multiplayer-hlapi.Editor.dll
+/reference:Library/ScriptAssemblies/Unity.VSCode.Editor.dll
+/reference:Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll
+/reference:Library/ScriptAssemblies/UnityEngine.UI.dll
+/reference:Library/ScriptAssemblies/Unity.Timeline.dll
+/reference:Library/ScriptAssemblies/Unity.CollabProxy.Editor.dll
+/reference:Library/ScriptAssemblies/com.unity.multiplayer-weaver.Editor.dll
+/reference:Library/ScriptAssemblies/UnityEngine.XR.LegacyInputHelpers.dll
+/reference:Library/ScriptAssemblies/Unity.Rider.Editor.dll
+/reference:Library/ScriptAssemblies/Unity.2D.Sprite.Editor.dll
+/reference:Library/ScriptAssemblies/Unity.2D.Tilemap.Editor.dll
+/reference:Library/ScriptAssemblies/UnityEditor.SpatialTracking.dll
+/reference:Library/ScriptAssemblies/UnityEngine.SpatialTracking.dll
+/reference:Library/ScriptAssemblies/Unity.TextMeshPro.dll
+/reference:Library/ScriptAssemblies/Unity.Analytics.DataPrivacy.dll
+/reference:Library/ScriptAssemblies/UnityEditor.XR.LegacyInputHelpers.dll
+/reference:Library/ScriptAssemblies/UnityEditor.UI.dll
+/reference:Library/ScriptAssemblies/com.unity.multiplayer-hlapi.Runtime.dll
+/reference:C:/Users/aaron/OneDrive/Documents/GitHub/MobileApps3ProjectGame/Tower_Of_The_Apes/Library/PackageCache/com.unity.analytics@3.3.2/Unity.Analytics.Editor.dll
+/reference:C:/Users/aaron/OneDrive/Documents/GitHub/MobileApps3ProjectGame/Tower_Of_The_Apes/Library/PackageCache/com.unity.analytics@3.3.2/Unity.Analytics.StandardEvents.dll
+/reference:C:/Users/aaron/OneDrive/Documents/GitHub/MobileApps3ProjectGame/Tower_Of_The_Apes/Library/PackageCache/com.unity.analytics@3.3.2/Unity.Analytics.Tracker.dll
 /reference:"C:/Program Files/Unity/Hub/Editor/2019.2.6f1/Editor/Data/NetStandard/ref/2.0.0/netstandard.dll"
 /reference:"C:/Program Files/Unity/Hub/Editor/2019.2.6f1/Editor/Data/NetStandard/compat/2.0.0/shims/netstandard/Microsoft.Win32.Primitives.dll"
 /reference:"C:/Program Files/Unity/Hub/Editor/2019.2.6f1/Editor/Data/NetStandard/compat/2.0.0/shims/netstandard/System.AppContext.dll"
@@ -313,6 +311,7 @@ Assets\__Scripts\SpawnPoint.cs
 Assets\__Scripts\Utilities\ParentUtils.cs
 Assets\__Scripts\WeaponsController.cs
 Assets\_Scripts\ButtonAnimation.cs
+Assets\_Scripts\ChangeVolume.cs
 Assets\_Scripts\FileHandler.cs
 Assets\_Scripts\FollowPlayer.cs
 Assets\_Scripts\MenuScript.cs
@@ -321,5 +320,6 @@ Assets\_Scripts\MovePlatforms.cs
 Assets\_Scripts\Platform.cs
 Assets\_Scripts\PlatformDecay.cs
 Assets\_Scripts\PlatformGenerator.cs
+Assets\_Scripts\PlayAudio.cs
 Assets\_Scripts\TitleCard.cs
 Assets\_Scripts\WallCollider.cs
