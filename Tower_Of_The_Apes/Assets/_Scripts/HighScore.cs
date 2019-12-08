@@ -6,7 +6,7 @@ using UnityEngine;
 [Serializable]
 public class HighScore { 
 
-    public string name;
-    public string highScore;
+    public string name { get; set; }
+    public string highScore { get; set; }
 
 }

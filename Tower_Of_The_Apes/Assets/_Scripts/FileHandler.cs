@@ -12,6 +12,7 @@ public class FileHandler
         string path = "Assets/Resources/test.txt";
 
         HighScore highScore = new HighScore();
+        HighScore highScoreRead = new HighScore();
         highScore.name = name;
         highScore.highScore = score;
 
@@ -44,7 +45,7 @@ public class FileHandler
 
             Debug.Log(nameFile + " " + highScoreFile);
 
-            HighScore highScoreRead = new HighScore();
+            
             highScore.name = nameFile;
             highScore.highScore = highScoreFile;
             Debug.Log("OBJECT:" + highScoreRead.highScore);
