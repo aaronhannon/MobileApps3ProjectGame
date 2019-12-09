@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 /* TO DO!!
  * Win Condition
@@ -38,12 +39,15 @@ public class Move : MonoBehaviour
     bool wallJump = false;
     private bool paused = false;
     FileHandler fh;
+    GameObject inputCanvas;
 
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         fh = new FileHandler();
         floor = GameObject.Find("Floor");
+        inputCanvas = GameObject.Find("InputCanvas");
+        inputCanvas.active = false;
 
     }
 
@@ -146,8 +150,10 @@ public class Move : MonoBehaviour
                 if (gameOver)
                 {
                     Debug.Log("GAME OVER!!!");
-                    
-                    fh.WriteString("Aaron",highestPlatform.ToString());
+
+                    inputCanvas.active = true;
+
+                    //fh.WriteString("Aaron",highestPlatform.ToString());
                     floor.GetComponent<BoxCollider2D>().enabled = true;
                     floor.GetComponent<SpriteRenderer>().enabled = true;
                     transform.position = new Vector2(1, 5);
@@ -281,10 +287,20 @@ public class Move : MonoBehaviour
         }
     }
 
+    public void GetInputText()
+    {
+        string name = GameObject.Find("UserText").GetComponent<UnityEngine.UI.Text>().text;
+
+        fh.WriteString(name, highestPlatform.ToString());
+        
+        SceneManager.LoadScene(0);
+    }
+
     public float getPlatformCounter()
     {
         return platformCounter;
     }
+
 
     public bool isPaused()
     {

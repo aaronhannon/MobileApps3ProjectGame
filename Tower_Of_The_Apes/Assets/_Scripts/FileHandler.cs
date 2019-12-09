@@ -10,6 +10,7 @@ public class FileHandler
 {
     List<HighScore> scores = new List<HighScore>();
     string path = "Assets/Resources/test.txt";
+    
 
     public void WriteString(string name,string score)
     {
@@ -52,6 +53,8 @@ public class FileHandler
         //scores.Sort((x, y) => Int32.Parse(x.highScore) - Int32.Parse(y.highScore));
         scores = scores.OrderByDescending(o => Int32.Parse(o.highScore)).ToList();
     }
+
+
 
     public List<HighScore> getOrderedHighScores()
     {

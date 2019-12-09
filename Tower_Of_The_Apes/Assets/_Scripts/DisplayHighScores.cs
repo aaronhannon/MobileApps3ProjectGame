@@ -11,7 +11,7 @@ public class DisplayHighScores : MonoBehaviour
     {
         FileHandler fh = new FileHandler();
 
-        fh.WriteString("Bob", "100");
+        //fh.WriteString("Bob", "100");
 
         fh.ReadFile();
         List<HighScore> scores = new List<HighScore>();
