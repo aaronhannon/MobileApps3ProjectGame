@@ -16,3 +16,5 @@ King
 19
 Garry
 8
+Ted
+10

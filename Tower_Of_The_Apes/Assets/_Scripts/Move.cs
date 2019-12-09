@@ -40,6 +40,7 @@ public class Move : MonoBehaviour
     private bool paused = false;
     FileHandler fh;
     GameObject inputCanvas;
+    GameObject pausedCanvas;
 
     void Start()
     {
@@ -48,6 +49,9 @@ public class Move : MonoBehaviour
         floor = GameObject.Find("Floor");
         inputCanvas = GameObject.Find("InputCanvas");
         inputCanvas.active = false;
+
+        pausedCanvas = GameObject.Find("PausedCanvas");
+        pausedCanvas.active = false;
 
     }
 
@@ -111,14 +115,14 @@ public class Move : MonoBehaviour
                     //Time.timeScale = 0.0f;
                     paused = true;
                     velocity = 0.0f;
-                    
+                    pausedCanvas.active = true;
                 }
                 else
                 {
                     Debug.Log("UnPaused");
                     //Time.timeScale = 1.0f;
                     paused = false;
-                    
+                    pausedCanvas.active = false;
 
                 }
 
@@ -150,14 +154,28 @@ public class Move : MonoBehaviour
                 if (gameOver)
                 {
                     Debug.Log("GAME OVER!!!");
-
+                    
                     inputCanvas.active = true;
+                    GameObject winnerText = GameObject.Find("Winner");
+                    winnerText.active = false;
 
                     //fh.WriteString("Aaron",highestPlatform.ToString());
                     floor.GetComponent<BoxCollider2D>().enabled = true;
                     floor.GetComponent<SpriteRenderer>().enabled = true;
                     transform.position = new Vector2(1, 5);
                     //reset = true;
+                }
+
+                if(highestPlatform == 100)
+                {
+                    Debug.Log("WINNER!!");
+
+                    
+                    inputCanvas.active = true;
+                    GameObject gameoverText = GameObject.Find("Gameover");
+                    gameoverText.active = false;
+                    
+
                 }
 
                 //WALL COLLISION
@@ -293,6 +311,11 @@ public class Move : MonoBehaviour
 
         fh.WriteString(name, highestPlatform.ToString());
         
+        SceneManager.LoadScene(0);
+    }
+
+    public void quitGame()
+    {
         SceneManager.LoadScene(0);
     }
 
