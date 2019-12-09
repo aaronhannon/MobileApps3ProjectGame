@@ -73,6 +73,7 @@
     <Compile Include="Assets\__Scripts\WeaponsController.cs" />
     <Compile Include="Assets\_Scripts\ButtonAnimation.cs" />
     <Compile Include="Assets\_Scripts\ChangeVolume.cs" />
+    <Compile Include="Assets\_Scripts\DisplayHighScores.cs" />
     <Compile Include="Assets\_Scripts\FileHandler.cs" />
     <Compile Include="Assets\_Scripts\FollowPlayer.cs" />
     <Compile Include="Assets\_Scripts\HighScore.cs" />
@@ -85,7 +86,25 @@
     <Compile Include="Assets\_Scripts\PlayAudio.cs" />
     <Compile Include="Assets\_Scripts\TitleCard.cs" />
     <Compile Include="Assets\_Scripts\WallCollider.cs" />
+    <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_SDF-Surface-Mobile.shader" />
+    <None Include="Assets\TextMesh Pro\Resources\LineBreaking Leading Characters.txt" />
     <None Include="Assets\Resources\test.txt" />
+    <None Include="Assets\TextMesh Pro\Resources\Shaders\TMPro_Properties.cginc" />
+    <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_Bitmap-Custom-Atlas.shader" />
+    <None Include="Assets\TextMesh Pro\Resources\LineBreaking Following Characters.txt" />
+    <None Include="Assets\TextMesh Pro\Sprites\EmojiOne Attribution.txt" />
+    <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_SDF-Mobile Masking.shader" />
+    <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_Bitmap-Mobile.shader" />
+    <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_SDF Overlay.shader" />
+    <None Include="Assets\TextMesh Pro\Fonts\LiberationSans - OFL.txt" />
+    <None Include="Assets\TextMesh Pro\Resources\Shaders\TMPro_Surface.cginc" />
+    <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_SDF-Mobile Overlay.shader" />
+    <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_Bitmap.shader" />
+    <None Include="Assets\TextMesh Pro\Resources\Shaders\TMPro.cginc" />
+    <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_SDF.shader" />
+    <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_SDF-Mobile.shader" />
+    <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_Sprite.shader" />
+    <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_SDF-Surface.shader" />
     <Reference Include="Unity.Timeline.Editor">
       <HintPath>C:/Users/aaron/OneDrive/Documents/GitHub/MobileApps3ProjectGame/Tower_Of_The_Apes/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
     </Reference>
