@@ -73,7 +73,8 @@ public class Move : MonoBehaviour
 
             if (transform.position.y > other.gameObject.transform.position.y)
             {
-                platformCounter = other.gameObject.transform.position.y / 2;
+                
+                platformCounter = Mathf.Round(other.gameObject.transform.position.y / 2);
 
                 if (platformCounter > highestPlatform)
                 {
@@ -161,7 +162,7 @@ public class Move : MonoBehaviour
 
                     //fh.WriteString("Aaron",highestPlatform.ToString());
                     floor.GetComponent<BoxCollider2D>().enabled = true;
-                    floor.GetComponent<SpriteRenderer>().enabled = true;
+                    //floor.GetComponent<SpriteRenderer>().enabled = true;
                     transform.position = new Vector2(1, 5);
                     //reset = true;
                 }

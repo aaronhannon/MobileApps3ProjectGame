@@ -33,7 +33,7 @@ public class PlatformGenerator : MonoBehaviour
             
 
             plat.transform.position = new Vector2(Random.Range(-7.0f, 7.0f), 2.0f+(platformCounter * 2f));
-            plat.transform.localScale = new Vector2(Random.Range(3.0f, 5.0f), 1.0f);
+            plat.transform.localScale = new Vector2(Random.Range(1.0f, 2.0f), 1.0f);
             Instantiate<Platform>(plat,platformParent.transform);
             platList.Add(plat);
             platformCounter++;

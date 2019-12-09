@@ -8,7 +8,7 @@ public class MovePlatforms : MonoBehaviour
     private GameObject floor;
     private PlatformGenerator platGen;
     private bool platCreated = false;
-    private float platformSpeed = 0.01f;
+    private float platformSpeed = 0.00f;
     private int moveDirection;
     private float platformCounter;
     private bool paused = false;
@@ -29,23 +29,36 @@ public class MovePlatforms : MonoBehaviour
         {
             platformCounter = player.GetComponent<Move>().getPlatformCounter();
 
-            switch (platformCounter)
+            if(platformCounter > 5)
             {
-                case 0:
-                    platformSpeed = 0.01f;
-                    break;
-
-                case 3:
-                    platformSpeed = 0.05f;
-                    break;
-
-                case 5:
-                    platformSpeed = .1f;
-                    break;
-
-                default:
-                    break;
+                platformSpeed = .1f;
             }
+            else if (platformCounter > 3 && platformCounter < 5)
+            {
+                platformSpeed = 0.05f;
+            }
+            else if(platformCounter < 1)
+            {
+                platformSpeed = 0.01f;
+            }
+
+            //switch (platformCounter)
+            //{
+            //    case 0:
+            //        platformSpeed = 0.01f;
+            //        break;
+
+            //    case 3:
+            //        platformSpeed = 0.05f;
+            //        break;
+
+            //    case 5:
+            //        platformSpeed = .1f;
+            //        break;
+
+            //    default:
+            //        break;
+            //}
 
 
             if (!platCreated)
