@@ -9,21 +9,18 @@ public class MenuScript : MonoBehaviour
     private bool playClicked = false;
     private bool optionClicked = false;
     private bool backClicked = false;
-    private bool audioPlayed = false;
     private bool scoresClicked = false;
     private bool backScoreClicked = false;
+    private bool guideClicked = false;
+    private bool backGuideClicked = false;
+  
 
     // Start is called before the first frame update
     void Start()
     {
         camera = GameObject.Find("Main Camera");
         audioData = GetComponent<AudioSource>();
-        
-    }
 
-    void playAudio()
-    {
-        audioData.Play(0);
     }
 
     void Update()
@@ -31,20 +28,17 @@ public class MenuScript : MonoBehaviour
 
         if (playClicked == true)
         {
-
-            if(audioPlayed == false)
-            {
-                playAudio();
-                audioPlayed = true;
-            }
             
             if (camera.transform.rotation.y < 0)
             {
                 camera.transform.Rotate(new Vector3(0, camera.transform.rotation.y + 1.5f, 0), Space.World);
+                
             }
             else
             {
                 playClicked = false;
+                 
+                
             }
         }
 
@@ -83,31 +77,60 @@ public class MenuScript : MonoBehaviour
 
         if (scoresClicked == true)
         {
-            Debug.Log("Options Camera Y: " + camera.transform.rotation.y);
+            
 
             if (camera.transform.rotation.z > -0.5)
             {
-                camera.transform.Rotate(new Vector3(0, 0, camera.transform.rotation.y - 1.5f), Space.World);
+                camera.transform.Rotate(new Vector3(0, 0, camera.transform.rotation.y - 2.0f), Space.World);
             }
             else
             {
-                Debug.Log("STOP");
+                
                 scoresClicked = false;
             }
         }
 
         if (backScoreClicked == true)
         {
-            Debug.Log("Back Camera Y: " + camera.transform.localRotation.z);
+            
 
             if (camera.transform.rotation.z <= -0.009f)
             {
-                Debug.Log("Back Clicked");
+                
                 camera.transform.Rotate(new Vector3(0, 0, camera.transform.rotation.y + 2.0f), Space.World);
             }
             else
             {
                 backScoreClicked = false;
+            }
+
+        }
+
+        if(guideClicked == true)
+        {
+            if (camera.transform.rotation.z < 0.5)
+            {
+                camera.transform.Rotate(new Vector3(0, 0, camera.transform.rotation.y + 2.0f), Space.World);
+            }
+            else
+            {
+
+                guideClicked = false;
+            }
+        }
+
+        if (backGuideClicked == true)
+        {
+
+
+            if (camera.transform.rotation.z >= 0.009f)
+            {
+
+                camera.transform.Rotate(new Vector3(0, 0, camera.transform.rotation.y - 2.0f), Space.World);
+            }
+            else
+            {
+                backGuideClicked = false;
             }
 
         }
@@ -136,6 +159,18 @@ public class MenuScript : MonoBehaviour
         scoresClicked = false;
         backScoreClicked = true;
 
+    }
+
+    public void backGuide()
+    {
+        guideClicked = false;
+        backGuideClicked = true;
+
+    }
+
+    public void guide()
+    {
+        guideClicked = true;
     }
 
     public void scores()

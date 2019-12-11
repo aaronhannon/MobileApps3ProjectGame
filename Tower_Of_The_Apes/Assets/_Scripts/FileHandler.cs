@@ -9,7 +9,7 @@ using UnityEngine;
 public class FileHandler
 {
     List<HighScore> scores = new List<HighScore>();
-    string path = "Assets/Resources/test.txt";
+    string path = "./Assets/Resources/scores.txt";
     
 
     public void WriteString(string name,string score)

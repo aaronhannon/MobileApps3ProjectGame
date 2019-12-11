@@ -2,21 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using TMPro;
 
-/* TO DO!!
- * Win Condition
- * Menus 
- * settings
- * Write highscores to file
- * Read Highscores from File
- */
 
-/* TO BE COMMITED!!
- * Platforms decay on a timer
- * Platforms move at certain player heights
- * Writing HighScore to file
- * End Game Condition inplemented
-*/
 public class Move : MonoBehaviour
 {
     private float acc = 0.02f;
@@ -41,7 +29,8 @@ public class Move : MonoBehaviour
     FileHandler fh;
     GameObject inputCanvas;
     GameObject pausedCanvas;
-
+    GameObject textObject;
+    TMP_Text scoretext;
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -52,6 +41,11 @@ public class Move : MonoBehaviour
 
         pausedCanvas = GameObject.Find("PausedCanvas");
         pausedCanvas.active = false;
+
+
+        textObject = GameObject.Find("Score");
+        scoretext = textObject.GetComponent<TMP_Text>();
+        
 
     }
 
@@ -74,11 +68,12 @@ public class Move : MonoBehaviour
             if (transform.position.y > other.gameObject.transform.position.y)
             {
                 
-                platformCounter = Mathf.Round(other.gameObject.transform.position.y / 2);
+                platformCounter = Mathf.Round(other.gameObject.transform.position.y / 4f);
 
                 if (platformCounter > highestPlatform)
                 {
                     highestPlatform = platformCounter;
+                    scoretext.text = "YOUR SCORE: " + highestPlatform.ToString();
                 }
                 Debug.Log("HIGH SCORE: " + highestPlatform);
             }
@@ -167,7 +162,7 @@ public class Move : MonoBehaviour
                     //reset = true;
                 }
 
-                if(highestPlatform == 100)
+                if(highestPlatform >= 95)
                 {
                     Debug.Log("WINNER!!");
 
@@ -214,27 +209,7 @@ public class Move : MonoBehaviour
                 }
 
                 //KEYPRESSES
-                if (Input.GetAxis("Horizontal") > 0 || Input.GetAxis("Horizontal") < 0)
-                {
-
-                    velocity += Input.GetAxis("Horizontal") * acc;
-
-                    if (Input.GetAxis("Horizontal") < 0 && velocity > 0)
-                    {
-
-                        velocity -= 0.1f;
-                        //Debug.Log(velocity);
-                    }
-
-                    if (Input.GetAxis("Horizontal") > 0 && velocity < 0)
-                    {
-
-                        velocity += 0.1f;
-                        //Debug.Log(velocity);
-                    }
-
-                    //Debug.Log(velocity);
-                }
+                moveCharacter();
 
                 ////ROTATION OF PLAYER
                 //if (grounded == false && maxJump == 1.0f)
@@ -313,6 +288,33 @@ public class Move : MonoBehaviour
         fh.WriteString(name, highestPlatform.ToString());
         
         SceneManager.LoadScene(0);
+    }
+
+    public void moveCharacter()
+    {
+        if (Input.GetAxis("Horizontal") > 0 || Input.GetAxis("Horizontal") < 0)
+        {
+
+
+
+            velocity += Input.GetAxis("Horizontal") * acc;
+
+            if (Input.GetAxis("Horizontal") < 0 && velocity > 0)
+            {
+
+                velocity -= 0.1f;
+                //Debug.Log(velocity);
+            }
+
+            if (Input.GetAxis("Horizontal") > 0 && velocity < 0)
+            {
+
+                velocity += 0.1f;
+                //Debug.Log(velocity);
+            }
+
+            //Debug.Log(velocity);
+        }
     }
 
     public void quitGame()

@@ -9,7 +9,7 @@ public class PlatformDecay : MonoBehaviour
     GameObject platParent;
     GameObject player;
     private float timeLeft1 = 5.0f;
-    private float timeLeft2 = 2.0f;
+    private float timeLeft2 = 1.0f;
     private float platformCounter;
     private GameObject camera;
     private FollowPlayer follow;
@@ -70,7 +70,7 @@ public class PlatformDecay : MonoBehaviour
                         {
                             //Debug.Log("TIMERS UP");
                             Destroy(platParent.transform.GetChild(0).gameObject);
-                            timeLeft2 = 2.0f;
+                            timeLeft2 = 1f;
                             platformCounter--;
                         }
                     }
