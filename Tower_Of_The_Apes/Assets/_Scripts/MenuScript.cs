@@ -72,7 +72,7 @@ public class MenuScript : MonoBehaviour
                 Debug.Log("STOP");
                 optionClicked = false;
             }
-            //camera.transform.eulerAngles = Vector3.Lerp(camera.transform.eulerAngles, new Vector3(0, 180, 0), Time.deltaTime * 1.5f);
+            
         }
 
         if (scoresClicked == true)

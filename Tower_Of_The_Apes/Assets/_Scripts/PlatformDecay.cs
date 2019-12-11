@@ -44,10 +44,10 @@ public class PlatformDecay : MonoBehaviour
             if (paused == false)
             {
                 timeLeft1 -= Time.deltaTime;
-                //Debug.Log("Time Left: " + timeLeft1);
+                
                 if (timeLeft1 < 0)
                 {
-                    //Debug.Log("FIRST TIMERS UP");
+                   
                     firstTimer = true;
                 }
 
@@ -77,22 +77,8 @@ public class PlatformDecay : MonoBehaviour
                 }
             }
 
-            
-       
-
-
-
-            //if (player.transform.position.y - 10 > platParent.transform.GetChild(0).gameObject.transform.position.y)
-            //{
-            //    Destroy(platParent.transform.GetChild(0).gameObject);
-            //    Debug.Log("Destroyed");
-
-            //}
-
-
-            //done = true;
         }
-        //        Debug.Log(player.transform.position.x);
+        
     }
 
 }

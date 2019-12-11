@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.Audio;
 using UnityEngine.UI;
 
-//https://www.youtube.com/watch?v=xNHSGMKtlv4
+//Tutorial FROM : https://www.youtube.com/watch?v=xNHSGMKtlv4
 public class ChangeVolume : MonoBehaviour
 {
     public AudioMixer mixer;

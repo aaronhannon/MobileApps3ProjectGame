@@ -75,7 +75,7 @@ public class Move : MonoBehaviour
                     highestPlatform = platformCounter;
                     scoretext.text = "YOUR SCORE: " + highestPlatform.ToString();
                 }
-                Debug.Log("HIGH SCORE: " + highestPlatform);
+                
             }
 
             if (transform.position.y> other.gameObject.transform.position.y)
@@ -89,8 +89,7 @@ public class Move : MonoBehaviour
                 wallJump = false;
             }
             counter++;
-            //jumpPower = 0.0f;
-            //rb.velocity = Vector2.zero;
+
         }
         
     }
@@ -211,28 +210,6 @@ public class Move : MonoBehaviour
                 //KEYPRESSES
                 moveCharacter();
 
-                ////ROTATION OF PLAYER
-                //if (grounded == false && maxJump == 1.0f)
-                //{
-                //    // Debug.Log("ROTATING");
-                //    if (velocity > 0)
-                //    {
-                //        transform.Rotate(Vector3.back * 7);
-                //    }
-                //    else
-                //    {
-                //        transform.Rotate(Vector3.forward * 7);
-                //    }
-
-
-                //}
-
-                //JUMP HIGHER AT A CERTAIN VELOCITY
-                //if ((velocity < -changeSpeed || velocity > changeSpeed) && grounded == true)
-                //{
-                //    //Debug.Log("MAX JUMP");
-                //    maxJump = 1.0f;
-                //}
                 if ((velocity > -changeSpeed || velocity < changeSpeed) && grounded == true)
                 {
                     maxJump = 0.5f;
@@ -258,22 +235,11 @@ public class Move : MonoBehaviour
 
                 if (inAir == true && jumpPower < maxJump)
                 {
-                    //Debug.Log("HerE");
+                    
 
                     jumpPower += 0.05f;
                     transform.position = new Vector2(transform.position.x, transform.position.y + jumpPower);
                 }
-
-                //if (inAir == true && jumpPower < maxJump)
-                //{
-                //    //Debug.Log("HerE");
-                //    if(doubleJump == 2)
-                //    {
-                //        maxJump = 1.0f;
-                //    }
-                //    jumpPower += 0.05f;
-                //    transform.position = new Vector2(transform.position.x, transform.position.y + jumpPower);
-                //}
 
                 transform.position = new Vector2(transform.position.x + velocity, transform.position.y);
             }
@@ -295,25 +261,23 @@ public class Move : MonoBehaviour
         if (Input.GetAxis("Horizontal") > 0 || Input.GetAxis("Horizontal") < 0)
         {
 
-
-
             velocity += Input.GetAxis("Horizontal") * acc;
 
             if (Input.GetAxis("Horizontal") < 0 && velocity > 0)
             {
 
                 velocity -= 0.1f;
-                //Debug.Log(velocity);
+                
             }
 
             if (Input.GetAxis("Horizontal") > 0 && velocity < 0)
             {
 
                 velocity += 0.1f;
-                //Debug.Log(velocity);
+                
             }
 
-            //Debug.Log(velocity);
+            
         }
     }
 

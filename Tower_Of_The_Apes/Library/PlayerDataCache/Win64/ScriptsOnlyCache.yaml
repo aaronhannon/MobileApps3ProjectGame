@@ -42,7 +42,7 @@ ScriptsOnlyBuild:
     - UnityEngine.Networking.NetworkCallbacks
     - UnityEngine.Networking.NetworkIdentity
   sceneClasses:
-    Assets/Scenes/SampleScene.unity:
+    Assets/Scenes/MainScene.unity:
     - Class: 1
       Script: {instanceID: 0}
     - Class: 4
@@ -804,5 +804,5 @@ ScriptsOnlyBuild:
     className: PlayableTrack
   platform: 19
   scenePathNames:
-  - Assets/Scenes/SampleScene.unity
+  - Assets/Scenes/MainScene.unity
   playerPath: C:/Users/Aaron/Desktop/MobileApps3ProjectGame/Tower_Of_The_Apes/WindowsBuild/Tower_Of_The_Apes.exe

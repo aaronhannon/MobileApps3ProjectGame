@@ -29,36 +29,18 @@ public class MovePlatforms : MonoBehaviour
         {
             platformCounter = player.GetComponent<Move>().getPlatformCounter();
 
-            if(platformCounter > 5)
+            if(platformCounter > 40)
             {
-                platformSpeed = .1f;
+                platformSpeed = .15f;
             }
-            else if (platformCounter > 3 && platformCounter < 5)
+            else if (platformCounter > 20 && platformCounter < 40)
             {
-                platformSpeed = 0.05f;
+                platformSpeed = 0.1f;
             }
             else if(platformCounter < 1)
             {
                 platformSpeed = 0.01f;
             }
-
-            //switch (platformCounter)
-            //{
-            //    case 0:
-            //        platformSpeed = 0.01f;
-            //        break;
-
-            //    case 3:
-            //        platformSpeed = 0.05f;
-            //        break;
-
-            //    case 5:
-            //        platformSpeed = .1f;
-            //        break;
-
-            //    default:
-            //        break;
-            //}
 
 
             if (!platCreated)
@@ -67,7 +49,7 @@ public class MovePlatforms : MonoBehaviour
                 platGen = floor.GetComponent<PlatformGenerator>();
                 platCreated = platGen.getPlatformsDone();
                 moveDirection = Random.RandomRange(0, 2);
-                // Debug.Log(moveDirection);
+                
             }
 
 
