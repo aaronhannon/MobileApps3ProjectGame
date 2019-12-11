@@ -25,10 +25,12 @@ public class MovePlatforms : MonoBehaviour
 
         paused = player.GetComponent<Move>().isPaused();
 
+        //Move the platforms if the game is not paused
         if (paused == false)
         {
             platformCounter = player.GetComponent<Move>().getPlatformCounter();
 
+            //Changes the speed of the platforms based on the players score
             if(platformCounter > 40)
             {
                 platformSpeed = .15f;
@@ -42,7 +44,7 @@ public class MovePlatforms : MonoBehaviour
                 platformSpeed = 0.01f;
             }
 
-
+            //Creates a platform
             if (!platCreated)
             {
                 floor = GameObject.Find("Floor");
@@ -52,7 +54,7 @@ public class MovePlatforms : MonoBehaviour
                 
             }
 
-
+            //when the platform is created it starts moving left or right based in the number assigned to it
             if (platCreated)
             {
                 if (moveDirection == 0)

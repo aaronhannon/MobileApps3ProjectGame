@@ -9,10 +9,12 @@ public class ChangeVolume : MonoBehaviour
 {
     public AudioMixer mixer;
     private Slider slider;
-     public void changeVol(float sliderValue)
+
+    //Gets the value of the slider and sets the mixer to that value. As the Mixer volume and the slider
+    // Values are NOT 1:1 / directly proportional you must do this "Mathf.Log10(slider.value) * 20"
+    public void changeVol(float sliderValue)
     {
         slider = gameObject.GetComponent<Slider>();
-        Debug.Log("IN IN IN");
         mixer.SetFloat("MusicVol", Mathf.Log10(slider.value) * 20);
     }
 

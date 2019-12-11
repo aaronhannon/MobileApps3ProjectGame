@@ -51,9 +51,10 @@ public class Move : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D other)
     {
+        //If the player collides with the ground all the below values are reset
         if (other.gameObject.CompareTag("Ground"))
         {
-            //Debug.Log("GROUND");
+            
             grounded = true;
             inAir = false;
             jumpPower = 0.0f;
@@ -61,9 +62,10 @@ public class Move : MonoBehaviour
             wallJump = false;
         }
 
+        //If the player collides with a platform their score is increased and some onscreen text is changed
         if (other.gameObject.CompareTag("Platform"))
         {
-            // Debug.Log("COLLISION");
+           
 
             if (transform.position.y > other.gameObject.transform.position.y)
             {
@@ -78,9 +80,9 @@ public class Move : MonoBehaviour
                 
             }
 
-            if (transform.position.y> other.gameObject.transform.position.y)
+            if (transform.position.y > other.gameObject.transform.position.y)
             {
-               // Debug.Log("OVER PLATFORM");
+               
                 jumpPower = 0.0f;
                 grounded = true;
                 inAir = false;
@@ -97,55 +99,55 @@ public class Move : MonoBehaviour
     void FixedUpdate()
     {
 
-
+        //Only Runs if the game is not over
         if (gameOver == false)
         {
 
+            //Pauses the game
             if (Input.GetKeyUp("escape"))
             {
-                Debug.Log("ESC Pressed");
+                
                 if (paused == false)
                 {
-                    Debug.Log("Paused");
-                    //Time.timeScale = 0.0f;
+                    
                     paused = true;
                     velocity = 0.0f;
                     pausedCanvas.active = true;
                 }
                 else
                 {
-                    Debug.Log("UnPaused");
-                    //Time.timeScale = 1.0f;
+                    
                     paused = false;
                     pausedCanvas.active = false;
 
                 }
 
-                
-
-
-
+               
             }
 
+            //If paused freeze the player
             if (paused == true)
             {
                 transform.position = new Vector2(transform.position.x, transform.position.y);
             }
 
+            //RUN THIS IF NOT PAUSED
             if (paused == false)
             {
+                //Disable the floor once the player is above 5 platforms
                 if (highestPlatform > 5)
                 {
                     floor.GetComponent<BoxCollider2D>().enabled = false;
                     floor.GetComponent<SpriteRenderer>().enabled = false;
 
-
+                    //If the player goes below the floors height the game is over
                     if (transform.position.y < floor.transform.position.y)
                     {
                         gameOver = true;
                     }
                 }
 
+                //Once the game is over the player is prompted to enter a name
                 if (gameOver)
                 {
                     Debug.Log("GAME OVER!!!");
@@ -154,14 +156,15 @@ public class Move : MonoBehaviour
                     GameObject winnerText = GameObject.Find("Winner");
                     winnerText.active = false;
 
-                    //fh.WriteString("Aaron",highestPlatform.ToString());
+                    
                     floor.GetComponent<BoxCollider2D>().enabled = true;
-                    //floor.GetComponent<SpriteRenderer>().enabled = true;
+                    
                     transform.position = new Vector2(1, 5);
-                    //reset = true;
+                    
                 }
 
-                if(highestPlatform >= 95)
+                //if the player wins the player is prompted to enter a name
+                if (highestPlatform >= 95)
                 {
                     Debug.Log("WINNER!!");
 
@@ -178,9 +181,9 @@ public class Move : MonoBehaviour
                 {
                     transform.position = new Vector2(-11, transform.position.y);
                     velocity = 0.0f;
-                    //Debug.Log("Wall Collision");
+                    
                 }
-
+                //WALL COLLISION
                 if (transform.position.x > 11)
                 {
 
@@ -189,10 +192,11 @@ public class Move : MonoBehaviour
 
                 }
 
+                //If the player is hugging a wall they can wall jump
                 if (transform.position.x > 10 || transform.position.x < -10)
                 {
 
-                    //Debug.Log("Wall Collision");
+                    
                     if (Input.GetKeyDown("space"))
                     {
                         wallJump = true;
@@ -207,9 +211,10 @@ public class Move : MonoBehaviour
                     }
                 }
 
-                //KEYPRESSES
+                //ALL THE LOGIC BEHIND MOVING THE CHARACTER
                 moveCharacter();
 
+                //DOUBLE JUMP LOGIC
                 if ((velocity > -changeSpeed || velocity < changeSpeed) && grounded == true)
                 {
                     maxJump = 0.5f;
@@ -223,8 +228,6 @@ public class Move : MonoBehaviour
                     Debug.Log("DoubleCounter" + doubleJump);
 
                     doubleJump++;
-
-
 
                 }
 
@@ -247,6 +250,7 @@ public class Move : MonoBehaviour
         }
     }
 
+    //Writes the players name and score to a file then is brought back to the main menu.
     public void GetInputText()
     {
         string name = GameObject.Find("UserText").GetComponent<UnityEngine.UI.Text>().text;
@@ -256,6 +260,7 @@ public class Move : MonoBehaviour
         SceneManager.LoadScene(0);
     }
 
+    //Moves the character
     public void moveCharacter()
     {
         if (Input.GetAxis("Horizontal") > 0 || Input.GetAxis("Horizontal") < 0)
@@ -281,6 +286,7 @@ public class Move : MonoBehaviour
         }
     }
 
+    //Quit button calls this and brings you back to the main menu
     public void quitGame()
     {
         SceneManager.LoadScene(0);

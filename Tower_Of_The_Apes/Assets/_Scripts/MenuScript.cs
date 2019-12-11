@@ -23,6 +23,11 @@ public class MenuScript : MonoBehaviour
 
     }
 
+    //EACH ON OF THESE ARE THE SAME JUST ROTATING IN A DIFFERENT DIRECTION!!
+    //E.g when the play button is clicked which calls play(). This method sets playClicked to true.
+    //Then in the update method the camera gets rotated until a specific value and then the boolean is set back to false;
+    //This is how camera rotates around the menus.
+
     void Update()
     {
 

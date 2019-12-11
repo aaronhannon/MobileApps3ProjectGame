@@ -18,12 +18,11 @@ public class FollowPlayer : MonoBehaviour
         menu.active = false;
     }
 
-    // Update is called once per frame
+    //Sets the players X and Y to the Cameras so that the camera follows the player.
     void Update()
     {
         playerX = player.transform.position.x;
         playerY = player.transform.position.y;
-
 
 
         transform.position = new Vector3(playerX, playerY, cameraZoom);

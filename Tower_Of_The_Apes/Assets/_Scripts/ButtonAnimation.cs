@@ -6,13 +6,13 @@ public class ButtonAnimation : MonoBehaviour
 {
 
     bool switchPos = false;
-    // Start is called before the first frame update
+    
     void Start()
     {
         
     }
 
-    // Update is called once per frame
+    //This just makes the Play and Scores button at the main menu pulse in and out
     void Update()
     {
         if (switchPos == false)

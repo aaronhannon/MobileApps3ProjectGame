@@ -6,7 +6,7 @@ using UnityEngine;
 public class PlayAudio : MonoBehaviour
 {
     AudioSource audioData;
-
+    //Starts the music
     void Start()
     {
         audioData = GetComponent<AudioSource>();

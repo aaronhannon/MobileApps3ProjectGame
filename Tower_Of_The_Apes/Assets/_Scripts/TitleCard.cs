@@ -9,7 +9,7 @@ public class TitleCard : MonoBehaviour
         
     }
 
-    // Update is called once per frame
+    //moves the title card/ name of the game closer to the camera
     void Update()
     {
         if (transform.position.x < -40)

@@ -13,7 +13,6 @@ public class PlatformGenerator : MonoBehaviour
     private bool platsCreated = false;
 
 
-    // Start is called before the first frame update
     void Start()
     {
         platList = new List<Platform>();
@@ -24,29 +23,24 @@ public class PlatformGenerator : MonoBehaviour
         }
     }
 
-    // Update is called once per frame
+
     void Update()
     {
 
+        //Creates a platform and gives it a random position and scale and is added to the list.
         if (platformCounter < maxPlatforms)
         {
             
-
             plat.transform.position = new Vector2(Random.Range(-7.0f, 7.0f), 2.0f+(platformCounter * 4f));
             plat.transform.localScale = new Vector2(Random.Range(1.0f, 2.0f), 1.0f);
             Instantiate<Platform>(plat,platformParent.transform);
             platList.Add(plat);
             platformCounter++;
-            //Debug.Log(platformCounter);
-            
-            
-            
+  
         }
         else
         {
             platsCreated = true;
-            
-            
         }
     }
 

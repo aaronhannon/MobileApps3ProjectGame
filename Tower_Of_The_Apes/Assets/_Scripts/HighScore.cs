@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+//HIGHSCORE OBJECT
 [Serializable]
 public class HighScore { 
 

@@ -12,13 +12,12 @@ public class FileHandler
     string path = "./Assets/Resources/scores.txt";
     
 
+    //Writes the Name and Score to a file
     public void WriteString(string name,string score)
     {
-        //WRITING TO FILE
+        
 
         HighScore highScore = new HighScore(name, score);
-
-        
 
         StreamWriter writer = new StreamWriter(path, true);
         writer.Write(highScore.name + "\n");
@@ -28,10 +27,10 @@ public class FileHandler
 
     }
 
+    //Reads all the Items from the file and turns them in Highscore Objects and added to a list.
+   // That list is then sorted using Linq
     public void ReadFile()
     {
-        //READING FROM FILE
-
         StreamReader reader = new StreamReader(path);
 
         string nameFile = reader.ReadLine();
@@ -54,7 +53,7 @@ public class FileHandler
     }
 
 
-
+    //Gets the ordered list
     public List<HighScore> getOrderedHighScores()
     {
         return scores;

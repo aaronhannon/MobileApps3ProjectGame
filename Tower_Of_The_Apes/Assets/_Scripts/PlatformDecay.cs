@@ -33,7 +33,7 @@ public class PlatformDecay : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        //If you clicked the playbutton
         if(camera.transform.rotation.y > 0 && camera.transform.rotation.y < 0.1)
         {
             follow = camera.GetComponent<FollowPlayer>();
@@ -43,8 +43,10 @@ public class PlatformDecay : MonoBehaviour
 
             if (paused == false)
             {
+                //TimeLeft1 is a large timer that lets the player have a head start
                 timeLeft1 -= Time.deltaTime;
                 
+                //once that time is up the second timer gets activated and its a lot faster
                 if (timeLeft1 < 0)
                 {
                    
@@ -65,7 +67,8 @@ public class PlatformDecay : MonoBehaviour
                     {
 
                         timeLeft2 -= Time.deltaTime;
-                        //Debug.Log("Time Left: " + timeLeft2);
+                        
+                        //if the time is up the first child platform is removed from the container.
                         if (timeLeft2 < 0 && platformCounter != 0)
                         {
                             //Debug.Log("TIMERS UP");
